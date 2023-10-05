@@ -1,38 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chess.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/ChessBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/ChessGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/ChessMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/ChessPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/ChessPosition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/InvalidMoveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/TestFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/ChessBoardTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/ChessGameTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/CastlingTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/EnPassantTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/BishopMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KingMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KnightMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/PawnMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/QueenMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/RookMoveTests.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding all starter code">
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessMoveImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessMove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessPiece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/starter/chess/InvalidMoveException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/ChessBoardTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/ChessGameTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessExtraCredit/CastlingTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessExtraCredit/EnPassantTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/BishopMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/KingMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/KnightMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/PawnMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/QueenMoveTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/RookMoveTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/ChessBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/ChessGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/ChessMove.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/ChessPiece.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/ChessPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/InvalidMoveException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/ChessBoardTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/ChessGameTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/CastlingTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/EnPassantTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/BishopMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KingMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KnightMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/PawnMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/QueenMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/RookMoveTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "samgerlach72"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1d730aa3-b789-4cd8-9b16-ad7f7768d8e7" />
+        <option name="url" value="https://github.com/samgerlach72/chess.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,17 +101,41 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess/src/test",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess/src/starter",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/starter" />
+      <recent name="$PROJECT_DIR$/src/test" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="chess" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="passoffTests in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.passoffTests in chess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -76,6 +146,19 @@
       <option name="presentableId" value="Default" />
       <updated>1696471727188</updated>
     </task>
+    <task id="LOCAL-00001" summary="Adding all starter code">
+      <option name="closed" value="true" />
+      <created>1696472300829</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696472300829</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding all starter code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding all starter code" />
   </component>
 </project>
