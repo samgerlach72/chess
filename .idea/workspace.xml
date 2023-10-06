@@ -4,52 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding all starter code">
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessMoveImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessMove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessPiece.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/ChessPosition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/starter/chess/InvalidMoveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/ChessBoardTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/ChessGameTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessExtraCredit/CastlingTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessExtraCredit/EnPassantTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/BishopMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/KingMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/KnightMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/PawnMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/QueenMoveTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/chessTests/chessPieceTests/RookMoveTests.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding all implementation classes (now tests run)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/ChessBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/ChessGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/ChessMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/ChessPiece.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/ChessPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/InvalidMoveException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TestFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/ChessBoardTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/ChessGameTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/CastlingTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessExtraCredit/EnPassantTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/BishopMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KingMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/KnightMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/PawnMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/QueenMoveTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/chessTests/chessPieceTests/RookMoveTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessMoveImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessMoveImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +51,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 7
@@ -116,24 +88,85 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="passoffTests in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in chess">
+    <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChessBoardTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoffTests.*" />
+          <option name="PATTERN" value="passoffTests.chessTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoffTests" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="passoffTests.chessTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.chessTests.ChessBoardTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.chessTests.chessPieceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.chessTests.chessPieceTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.chessTests.chessPieceTests.RookMoveTests" />
+      <option name="METHOD_NAME" value="capture" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookMoveTests.capture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.chessTests.chessPieceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.chessTests.chessPieceTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.chessTests.chessPieceTests.RookMoveTests" />
+      <option name="METHOD_NAME" value="capture" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookMoveTests.emptyBoard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.chessTests.chessPieceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.chessTests.chessPieceTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.chessTests.chessPieceTests.RookMoveTests" />
+      <option name="METHOD_NAME" value="emptyBoard" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.passoffTests in chess" />
+        <item itemvalue="JUnit.All in chess" />
+        <item itemvalue="JUnit.RookMoveTests.emptyBoard" />
+        <item itemvalue="JUnit.RookMoveTests" />
+        <item itemvalue="JUnit.RookMoveTests.capture" />
+        <item itemvalue="JUnit.ChessBoardTests" />
       </list>
     </recent_temporary>
   </component>
@@ -154,11 +187,47 @@
       <option name="project" value="LOCAL" />
       <updated>1696472300829</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding all implementation classes (now tests run)">
+      <option name="closed" value="true" />
+      <created>1696475002160</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696475002161</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding all starter code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding all starter code" />
+    <MESSAGE value="Adding all implementation classes (now tests run)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding all implementation classes (now tests run)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/passoffTests/chessTests/ChessBoardTests.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

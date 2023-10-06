@@ -42,11 +42,13 @@ public class ChessGameImpl implements ChessGame {
 
     @Override
     public void setBoard(ChessBoard board) {
-
     }
 
     @Override
     public ChessBoard getBoard() {
         return null;
     }
+
+    //self defined
+
 }
