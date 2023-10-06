@@ -6,6 +6,9 @@ import chess.ChessPieceImpl.*;
 import chess.ChessPosition;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ChessBoardImpl implements ChessBoard {
     @Override
@@ -13,10 +16,8 @@ public class ChessBoardImpl implements ChessBoard {
         chessBoard[position.getRow()-1][position.getColumn()-1] = piece;
     }
 
-    //FIXME
     @Override
     public ChessPiece getPiece(ChessPosition position) {
-
         if(chessBoard[position.getRow()-1][position.getColumn()-1] != null){
             return chessBoard[position.getRow()-1][position.getColumn()-1];
         }
@@ -58,6 +59,37 @@ public class ChessBoardImpl implements ChessBoard {
 
     //self defined
     ChessPiece[][] chessBoard = new ChessPiece[8][8];
+    public ChessPosition findKing(ChessGame.TeamColor teamColor) {      //returns
+        for(int i = 1; i < 9; ++i){
+            for(int j = 1; j < 9; ++j){
+                ChessPositionImpl possiblePosition = new ChessPositionImpl(i,j);
+                if(getPiece(possiblePosition) != null && getPiece(possiblePosition).getPieceType() == ChessPiece.PieceType.KING && getPiece(possiblePosition).getTeamColor() == teamColor) {
+                    return possiblePosition;
+                }
+            }
+        }
+        return null;
+    }
+    public Collection<ChessPosition> findAllPositions(ChessGame.TeamColor teamColor){
+        Set<ChessPosition> positions = new HashSet<>();
+        for(int i = 1; i < 9; ++i){
+            for(int j = 1; j < 9; ++j){
+                ChessPositionImpl possiblePosition = new ChessPositionImpl(i,j);
+                if(getPiece(possiblePosition) != null && getPiece(possiblePosition).getTeamColor() == teamColor) {
+                    positions.add(possiblePosition);
+                }
+            }
+        }
+        return positions;
+    }
+//    public ChessBoardImpl copy() {
+//
+//        return new ChessBoardImpl(this);
+//    }
+//    // Copy constructor
+//    public ChessBoardImpl(ChessBoard original) {
+//        this.value = original.value;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,4 +103,5 @@ public class ChessBoardImpl implements ChessBoard {
     public int hashCode() {
         return Arrays.hashCode(chessBoard);
     }
+
 }
