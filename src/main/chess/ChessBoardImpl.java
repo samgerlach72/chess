@@ -82,14 +82,9 @@ public class ChessBoardImpl implements ChessBoard {
         }
         return positions;
     }
-//    public ChessBoardImpl copy() {
-//
-//        return new ChessBoardImpl(this);
-//    }
-//    // Copy constructor
-//    public ChessBoardImpl(ChessBoard original) {
-//        this.value = original.value;
-//    }
+    public void removePiece(ChessPosition position) {
+        chessBoard[position.getRow()-1][position.getColumn()-1] = null;
+    }
 
     @Override
     public boolean equals(Object o) {

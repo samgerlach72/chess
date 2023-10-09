@@ -24,13 +24,6 @@ public class ChessPositionImpl implements ChessPosition {
         this.row = 0;
         this.column = 0;
     }
-//    public void setRow(int row){
-//        this.row = row;
-//    }
-//    public void setColumn(int column){
-//        this.column = column;
-//    }
-
     private int row;
     private int column;
 

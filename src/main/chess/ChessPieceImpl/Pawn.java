@@ -38,7 +38,7 @@ public class Pawn implements ChessPiece {
 
     public void whiteMoves(ChessBoard board, ChessPosition myPosition, Set<ChessMove> moves){
         ChessPosition endPosition = new ChessPositionImpl(myPosition.getRow() + 1, myPosition.getColumn() + 1);
-        if(board.getPiece(endPosition) != null && endPosition.getColumn() < 9 && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
+        if(endPosition.getColumn() < 9 && board.getPiece(endPosition) != null && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
             if(endPosition.getRow() == 8){
                 promotionMoves(myPosition, endPosition, moves);
             }
@@ -47,7 +47,7 @@ public class Pawn implements ChessPiece {
             }
         }
         endPosition = new ChessPositionImpl(myPosition.getRow() + 1, myPosition.getColumn() - 1);
-        if(board.getPiece(endPosition) != null && 0 < endPosition.getColumn() && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
+        if(0 < endPosition.getColumn() && board.getPiece(endPosition) != null && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
             if(endPosition.getRow() == 8){
                 promotionMoves(myPosition, endPosition, moves);
             }
@@ -75,7 +75,7 @@ public class Pawn implements ChessPiece {
 
     public void blackMoves(ChessBoard board, ChessPosition myPosition, Set<ChessMove> moves){
         ChessPosition endPosition = new ChessPositionImpl(myPosition.getRow() - 1, myPosition.getColumn() + 1);
-        if(board.getPiece(endPosition) != null && endPosition.getColumn() < 9 && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
+        if(endPosition.getColumn() < 9 && board.getPiece(endPosition) != null && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
             if(endPosition.getRow() == 1){
                 promotionMoves(myPosition, endPosition, moves);
             }
@@ -84,7 +84,7 @@ public class Pawn implements ChessPiece {
             }
         }
         endPosition = new ChessPositionImpl(myPosition.getRow() - 1, myPosition.getColumn() - 1);
-        if(board.getPiece(endPosition) != null && 0 < endPosition.getColumn() && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
+        if(0 < endPosition.getColumn() && board.getPiece(endPosition) != null && board.getPiece(endPosition).getTeamColor() != board.getPiece(myPosition).getTeamColor()){
             if(endPosition.getRow() == 1){
                 promotionMoves(myPosition, endPosition, moves);
             }
