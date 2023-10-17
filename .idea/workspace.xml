@@ -4,12 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding correct implementation of isInCheck">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding correct ChessGameImpl (passes all tests now)">
+      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/DataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/models/AuthToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/ClearApplicationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPositionImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +74,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/samuelgerlach/CodingProjects/CS240/chess/src/starter&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/test/passoffTests" />
+      <recent name="$PROJECT_DIR$/src/main/dataAccess" />
       <recent name="$PROJECT_DIR$/src/starter" />
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
@@ -206,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696573316339</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Adding correct ChessGameImpl (passes all tests now)">
+      <option name="closed" value="true" />
+      <created>1696871328363</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696871328364</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,7 +256,8 @@
     <MESSAGE value="Adding all implementation classes (now tests run)" />
     <MESSAGE value="Adding all correct piece move implementations" />
     <MESSAGE value="Adding correct implementation of isInCheck" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correct implementation of isInCheck" />
+    <MESSAGE value="Adding correct ChessGameImpl (passes all tests now)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding correct ChessGameImpl (passes all tests now)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

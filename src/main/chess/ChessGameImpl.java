@@ -1,11 +1,9 @@
 package chess;
-
 import chess.*;
 import chess.ChessPieceImpl.Bishop;
 import chess.ChessPieceImpl.Knight;
 import chess.ChessPieceImpl.Queen;
 import chess.ChessPieceImpl.Rook;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
