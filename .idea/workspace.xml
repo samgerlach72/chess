@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Selected directories" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding correct ChessGameImpl (passes all tests now)">
-      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/DataAccessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/models/AuthToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/ClearApplicationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding phase 2">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_simple.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sparkjava_spark_core.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/passoff-dependencies.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/tyrus-standalone-client-1.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/dataAccess/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chess.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chess.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,22 +79,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/samuelgerlach/CodingProjects/CS240/chess&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -102,7 +107,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in chess">
+  <component name="RunManager" selected="JUnit.passoffTests.serverTests in chess">
     <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <option name="PACKAGE_NAME" value="" />
@@ -142,20 +147,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="chess in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="chess" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="passoffTests in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -170,13 +161,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="passoffTests.serverTests in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.passoffTests.serverTests in chess" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.ChessGameTests" />
         <item itemvalue="JUnit.ChessGameTests.validMoves" />
         <item itemvalue="JUnit.passoffTests in chess" />
-        <item itemvalue="JUnit.chess in chess" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696871328364</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding phase 2">
+      <option name="closed" value="true" />
+      <created>1697577426403</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697577426404</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,7 +270,8 @@
     <MESSAGE value="Adding all correct piece move implementations" />
     <MESSAGE value="Adding correct implementation of isInCheck" />
     <MESSAGE value="Adding correct ChessGameImpl (passes all tests now)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correct ChessGameImpl (passes all tests now)" />
+    <MESSAGE value="Adding phase 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
