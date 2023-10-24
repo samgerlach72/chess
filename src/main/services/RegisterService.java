@@ -8,7 +8,7 @@ import requests.RegisterRequest;
 import responses.RegisterResponse;
 
 public class RegisterService {
-    public RegisterResponse register(RegisterRequest request) {
+    public static RegisterResponse register(RegisterRequest request) {
         RegisterResponse response = new RegisterResponse();
         User newUser = new User(request.getUsername(), request.getPassword(), request.getEmail());
         try {

@@ -5,7 +5,7 @@ import dataAccess.Games;
 import responses.ListGamesResponse;
 
 public class ListGamesService {
-    public ListGamesResponse listGames(String authToken) {
+    public static ListGamesResponse listGames(String authToken) {
         ListGamesResponse response = new ListGamesResponse();
         try {
             AuthTokens.getInstance().authenticate(authToken);

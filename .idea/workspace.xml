@@ -9,20 +9,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding unversioned files">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="All StandardAPITests passed">
+      <change afterPath="$PROJECT_DIR$/src/main/handlers/GetResponseStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/serviceTests/ServiceTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/models/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +112,7 @@
   </component>
   <component name="RunManager" selected="JUnit.StandardAPITests">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server" />
+      <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="chess" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -297,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698126638728</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="All StandardAPITests passed">
+      <option name="closed" value="true" />
+      <created>1698165508274</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1698165508274</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,7 +347,8 @@
     <MESSAGE value="Adding 10 tests passed" />
     <MESSAGE value="Adding 12 tests passed" />
     <MESSAGE value="Adding unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding unversioned files" />
+    <MESSAGE value="All StandardAPITests passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="All StandardAPITests passed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

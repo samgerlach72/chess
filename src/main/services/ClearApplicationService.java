@@ -5,7 +5,7 @@ import dataAccess.Users;
 import responses.ClearApplicationResponse;
 
 public class ClearApplicationService {
-    public ClearApplicationResponse clearApplication() {
+    public static ClearApplicationResponse clearApplication() {
         ClearApplicationResponse response = new ClearApplicationResponse();
         Users.getInstance().clearUsers();
         Games.getInstance().clearGames();

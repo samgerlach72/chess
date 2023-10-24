@@ -1,5 +1,4 @@
 package dataAccess;
-
 import models.AuthToken;
 import java.util.HashSet;
 
@@ -38,10 +37,5 @@ public class AuthTokens {
     }
     public void clearTokens(){
         authTokens.clear();
-    }
-
-    //used to generate unique token. Not used to authenticate.
-    public boolean find(AuthToken authToken){
-        return authTokens.contains(authToken);
     }
 }

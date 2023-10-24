@@ -8,16 +8,8 @@ import spark.Response;
 public class LogoutHandler {
     public static String logout(Request req, Response res) {
         String authToken = req.headers("Authorization");
-        LogoutResponse logoutResponse = new LogoutService().logout(authToken);
-        if(logoutResponse.getMessage() == null){
-            res.status(200);
-        }
-        else if(logoutResponse.getMessage().equals("Error: unauthorized")){
-            res.status(401);
-        }
-        else{
-            res.status(500);
-        }
+        LogoutResponse logoutResponse = LogoutService.logout(authToken);
+        res.status(GetResponseStatus.getResponseStatus(logoutResponse.getMessage()));
         res.type("application/json");
         return new Gson().toJson(logoutResponse);
     }

@@ -1,32 +1,13 @@
 package models;
-import dataAccess.AuthTokens;
-
 import java.util.Objects;
-import java.util.Random;
+import java.util.UUID;
 
 public class AuthToken {
     private String authToken;
     private final String username;
     public AuthToken(String username){
         this.username = username;
-        while(true){
-            this.authToken = generateRandomToken();
-            AuthTokens authTokens = AuthTokens.getInstance();
-            if(!authTokens.find(this)){
-                return;
-            }
-        }
-    }
-    private String generateRandomToken() {
-        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        int length = 16;
-        Random random = new Random();
-        StringBuilder sb = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            int index = random.nextInt(characters.length());
-            sb.append(characters.charAt(index));
-        }
-        return sb.toString();
+        this.authToken = UUID.randomUUID().toString();
     }
     public String getAuthToken() {
         return authToken;

@@ -1,3 +1,4 @@
+package server;
 import handlers.*;
 import spark.*;
 

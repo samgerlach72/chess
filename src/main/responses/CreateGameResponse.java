@@ -1,8 +1,5 @@
 package responses;
 
-/**
- * stores response to create game
- */
 public class CreateGameResponse {
     private String message;
     private Integer gameID = null;

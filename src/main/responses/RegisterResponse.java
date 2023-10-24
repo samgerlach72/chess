@@ -1,8 +1,5 @@
 package responses;
 
-/**
- * stores response to register
- */
 public class RegisterResponse {
     private String message;
     private String authToken;

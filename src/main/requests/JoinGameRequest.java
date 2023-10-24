@@ -2,7 +2,6 @@ package requests;
 
 
 public class JoinGameRequest {
-
     private String playerColor;
     private int gameID;
     public String getPlayerColor() {

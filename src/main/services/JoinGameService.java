@@ -6,7 +6,7 @@ import requests.JoinGameRequest;
 import responses.JoinGameResponse;
 
 public class JoinGameService {
-    public JoinGameResponse joinGame(JoinGameRequest request, String authToken) {
+    public static JoinGameResponse joinGame(JoinGameRequest request, String authToken) {
         JoinGameResponse response = new JoinGameResponse();
         try {
             String username = AuthTokens.getInstance().authenticate(authToken);

@@ -9,19 +9,8 @@ import spark.Response;
 public class RegisterHandler {
     public static String register(Request req, Response res) {
         RegisterRequest registerRequest = new Gson().fromJson(req.body(), RegisterRequest.class);
-        RegisterResponse registerResponse = new RegisterService().register(registerRequest);
-        if(registerResponse.getMessage() == null){
-            res.status(200);
-        }
-        else if(registerResponse.getMessage().equals("Error: bad request")){
-            res.status(400);
-        }
-        else if(registerResponse.getMessage().equals("Error: already taken")){
-            res.status(403);
-        }
-        else{
-            res.status(500);
-        }
+        RegisterResponse registerResponse = RegisterService.register(registerRequest);
+        res.status(GetResponseStatus.getResponseStatus(registerResponse.getMessage()));
         res.type("application/json");
         return new Gson().toJson(registerResponse);
     }

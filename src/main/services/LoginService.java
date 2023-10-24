@@ -8,7 +8,7 @@ import responses.LoginResponse;
 import requests.LoginRequest;
 
 public class LoginService {
-    public LoginResponse login(LoginRequest request) {
+    public static LoginResponse login(LoginRequest request) {
         LoginResponse response = new LoginResponse();
         User newUser = new User(request.getUsername(), request.getPassword(), null);
         try {

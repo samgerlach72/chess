@@ -4,7 +4,7 @@ import dataAccess.DataAccessException;
 import responses.LogoutResponse;
 
 public class LogoutService {
-    public LogoutResponse logout(String authToken) {
+    public static LogoutResponse logout(String authToken) {
         LogoutResponse response = new LogoutResponse();
         try {
             AuthTokens.getInstance().removeToken(authToken);
