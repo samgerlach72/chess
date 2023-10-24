@@ -1,11 +1,7 @@
 package responses;
 import models.Game;
-import java.util.Collection;
 import java.util.HashSet;
 
-/**
- * stores response to list game
- */
 public class ListGamesResponse {
     private String message;
     private HashSet<Game> games;
@@ -14,5 +10,11 @@ public class ListGamesResponse {
     }
     public HashSet<Game> getGames() {
         return games;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public void setGames(HashSet<Game> games) {
+        this.games = games;
     }
 }

@@ -24,20 +24,23 @@ public class Games {
         }
         games.add(gameToAdd);
     }
-    public Game findGame(int gameID){
+    public Game findGame(int gameID) throws DataAccessException{
         for (Game game : games) {
             if (game.getGameID() == gameID) {
                 return game; // Return the Game with the specified gameID
             }
         }
-        return null; // If no matching game is found
+        throw new DataAccessException("Error: bad request"); // If no matching game is found
     }
     public HashSet<Game> getAllGames(){
         return games;
     }
     public void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
         Game game = findGame(gameID);
-        if(playerColor.equals("WHITE")){
+        if(playerColor == null){
+            game.addObserver(username);
+        }
+        else if(playerColor.equals("WHITE")){
             if(game.getWhiteUsername() == null){
                 game.setWhiteUsername(username);
             }
@@ -57,13 +60,10 @@ public class Games {
             throw new DataAccessException("Error: bad request");
         }
     }
-//    public void removeGame(int gameID){
-//        Game
-//    }
     public void clearGames(){
         games.clear();
     }
-
+    //used to generate gameID
     public int getNumGames(){
         return games.size();
     }
