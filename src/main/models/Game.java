@@ -3,6 +3,7 @@ import chess.ChessGame;
 import chess.ChessGameImpl;
 import dataAccess.Games;
 
+import java.util.HashSet;
 import java.util.Objects;
 
 public class Game {
@@ -11,9 +12,13 @@ public class Game {
     private String whiteUsername;
     private String blackUsername;
     private String gameName;
+    private HashSet<String> observers = new HashSet<>();
     public Game(String gameName){
         this.gameID = Games.getInstance().getNumGames() + 1;
         this.gameName = gameName;
+    }
+    public void addObserver(String username){
+        observers.add(username);
     }
     public int getGameID(){
         return gameID;

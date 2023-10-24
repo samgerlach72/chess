@@ -1,10 +1,6 @@
 package handlers;
-
 import com.google.gson.Gson;
-import requests.LoginRequest;
-import responses.LoginResponse;
 import responses.LogoutResponse;
-import services.LoginService;
 import services.LogoutService;
 import spark.Request;
 import spark.Response;

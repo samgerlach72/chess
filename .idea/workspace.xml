@@ -9,15 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding 10 tests passed">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding unversioned files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/JoinGameResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/ListGamesResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +118,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StandardAPITests.badGameIDWatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="METHOD_NAME" value="badGameIDWatch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StandardAPITests.registerTwice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -145,27 +166,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="passoffTests.serverTests in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.StandardAPITests.badGameIDWatch" />
         <item itemvalue="JUnit.StandardAPITests.registerTwice" />
         <item itemvalue="JUnit.StandardAPITests.successRegister" />
-        <item itemvalue="JUnit.passoffTests.serverTests in chess" />
       </list>
     </recent_temporary>
   </component>
@@ -274,7 +281,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698124709023</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Adding 12 tests passed">
+      <option name="closed" value="true" />
+      <created>1698126527149</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698126527149</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Adding unversioned files">
+      <option name="closed" value="true" />
+      <created>1698126638728</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698126638728</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,7 +322,9 @@
     <MESSAGE value="Adding correct (or mostly correct) impl of RegisterHandler" />
     <MESSAGE value="Adding Normal User Registration Test Passed" />
     <MESSAGE value="Adding 10 tests passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding 10 tests passed" />
+    <MESSAGE value="Adding 12 tests passed" />
+    <MESSAGE value="Adding unversioned files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding unversioned files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
