@@ -7,7 +7,7 @@ import spark.Request;
 import spark.Response;
 
 public class RegisterHandler {
-    public String register(Request req, Response res) {
+    public static String register(Request req, Response res) {
         RegisterRequest registerRequest = new Gson().fromJson(req.body(), RegisterRequest.class);
         RegisterResponse registerResponse = new RegisterService().register(registerRequest);
         if(registerResponse.getMessage() == null){

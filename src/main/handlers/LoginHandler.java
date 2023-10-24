@@ -6,7 +6,7 @@ import services.LoginService;
 import spark.*;
 
 public class LoginHandler {
-    public LoginHandler(Request req, Response res) {
+    public static String login(Request req, Response res) {
         LoginRequest loginRequest = new Gson().fromJson(req.body(), LoginRequest.class);
         LoginResponse loginResponse = new LoginService().login(loginRequest);
         if(loginResponse.getMessage() == null){
@@ -19,6 +19,6 @@ public class LoginHandler {
             res.status(500);
         }
         res.type("application/json");
-        res.body(new Gson().toJson(loginResponse));
+        return new Gson().toJson(loginResponse);
     }
 }

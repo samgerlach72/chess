@@ -19,8 +19,16 @@ public class Users {
         users.clear();
     }
     public void addUser(User user) throws DataAccessException{
+        for(User existingUser: users){
+            if(existingUser.getUsername().equals(user.getUsername())){
+                throw new DataAccessException("already taken");
+            }
+            if(existingUser.getEmail().equals(user.getEmail())){
+                throw new DataAccessException("already taken");
+            }
+        }
         if(!users.add(user)){
-            throw new DataAccessException("already taken");
+            throw new DataAccessException("should not be equal error"); //fixme
         }
     }
     boolean authenticateUser(User user){

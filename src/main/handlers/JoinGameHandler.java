@@ -4,6 +4,7 @@ import spark.Request;
 import spark.Response;
 
 public class JoinGameHandler {
-    public JoinGameHandler(Request req, Response res) {
+    public static String joinGame(Request req, Response res) {
+        return "";
     }
 }

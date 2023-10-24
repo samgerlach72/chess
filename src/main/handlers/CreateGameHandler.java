@@ -4,6 +4,7 @@ import spark.Request;
 import spark.Response;
 
 public class CreateGameHandler {
-    public CreateGameHandler(Request req, Response res) {
+    public static String createGame(Request req, Response res) {
+        return "";
     }
 }
