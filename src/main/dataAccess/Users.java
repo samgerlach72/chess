@@ -1,6 +1,5 @@
 package dataAccess;
 import models.User;
-
 import java.util.HashSet;
 
 public class Users {
@@ -16,9 +15,15 @@ public class Users {
         return instance;
     }
     private HashSet<User> users;
-    public void clearUsers(){}
-    void CreateUser(User user) throws DataAccessException{}
-    boolean authenticateUser(String username, String password){
-        return false;
+    public void clearUsers(){
+        users.clear();
+    }
+    public void addUser(User user) throws DataAccessException{
+        if(!users.add(user)){
+            throw new DataAccessException("already taken");
+        }
+    }
+    boolean authenticateUser(User user){
+        return users.contains(user);
     }
 }

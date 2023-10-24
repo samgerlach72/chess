@@ -4,16 +4,25 @@ package responses;
  * stores response to register
  */
 public class RegisterResponse {
-    /**
-     * error message if there is an error
-     */
     private String message;
-    /**
-     * authToken so that registered user doesn't have to sign in after registering
-     */
     private String authToken;
-    /**
-     * username of user that just registered
-     */
     private String username;
+    public String getMessage() {
+        return message;
+    }
+    public String getAuthToken() {
+        return authToken;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

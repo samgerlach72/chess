@@ -20,7 +20,7 @@ public class Games {
     }
 
     private HashSet<Game> games;
-    public void insertGame(Game gameToAdd){
+    public void insertGame(Game gameToAdd) throws DataAccessException{
         games.add(gameToAdd);
     }
     public Game findGame(int gameID){
@@ -34,7 +34,32 @@ public class Games {
     public HashSet<Game> findAllGames(){
         return games;
     }
-    public void ClaimSpot(String username, int gameID, String playerColor) throws DataAccessException{}
-    public void removeGame(int gameID){}
-    public void clearGames(){}
+    public void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
+        Game game = findGame(gameID);
+        if(playerColor.equals("WHITE")){
+            if(game.getWhiteUsername() == null){
+                game.setWhiteUsername(username);
+            }
+            else{
+                throw new DataAccessException("already taken");
+            }
+        }
+        else if(playerColor.equals("BLACK")){
+            if(game.getBlackUsername() == null){
+                game.setBlackUsername(username);
+            }
+            else{
+                throw new DataAccessException("already taken");
+            }
+        }
+        else{
+            throw new DataAccessException("bad request");
+        }
+    }
+//    public void removeGame(int gameID){
+//        Game
+//    }
+    public void clearGames(){
+        games.clear();
+    }
 }

@@ -16,12 +16,23 @@ public class AuthTokens {
         return instance;
     }
     private HashSet<AuthToken> authTokens;
-    public AuthToken findToken(AuthToken authToken){
-        return null;
+    public void authenticate(AuthToken authToken) throws DataAccessException{
+        if(!authTokens.contains(authToken)){
+            throw new DataAccessException("unauthorized");
+        }
     }
-    public void removeToken(AuthToken authToken){}
-    public void addToken(AuthToken authToken){
+    public void removeToken(AuthToken authToken){
+        authTokens.remove(authToken);
+    }
+    public boolean add(AuthToken authToken){
+        return authTokens.add(authToken);
+    }
+    public void clearTokens(){
+        authTokens.clear();
+    }
 
+    //used to generate unique token. Not used to authenticate.
+    public boolean find(AuthToken authToken){
+        return authTokens.contains(authToken);
     }
-    public void clearTokens(){}
 }
