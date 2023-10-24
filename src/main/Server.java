@@ -5,7 +5,6 @@ public class Server {
     public static void main(String[] args) {
         new Server().run();
     }
-
     private void run() {
         Spark.port(8080);
         Spark.externalStaticFileLocation("path/to/web/folder");

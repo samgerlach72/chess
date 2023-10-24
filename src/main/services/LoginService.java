@@ -1,9 +1,25 @@
 package services;
+import dataAccess.AuthTokens;
+import dataAccess.DataAccessException;
+import dataAccess.Users;
+import models.AuthToken;
+import models.User;
 import responses.LoginResponse;
 import requests.LoginRequest;
 
 public class LoginService {
     public LoginResponse login(LoginRequest request) {
-        return null;
+        LoginResponse response = new LoginResponse();
+        User newUser = new User(request.getUsername(), request.getPassword(), null);
+        try {
+            Users.getInstance().authenticateUser(newUser);
+            response.setUsername(request.getUsername());
+            AuthToken authToken = new AuthToken(request.getUsername());
+            AuthTokens.getInstance().add(authToken);
+            response.setAuthToken(authToken.getAuthToken());
+        } catch (DataAccessException exception) {
+            response.setMessage(exception.getMessage());
+        }
+        return response;
     }
 }

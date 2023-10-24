@@ -13,18 +13,16 @@ public class RegisterHandler {
         if(registerResponse.getMessage() == null){
             res.status(200);
         }
-        else if(registerResponse.getMessage().equals("bad request")){
+        else if(registerResponse.getMessage().equals("Error: bad request")){
             res.status(400);
         }
-        else if(registerResponse.getMessage().equals("already taken")){
+        else if(registerResponse.getMessage().equals("Error: already taken")){
             res.status(403);
         }
         else{
             res.status(500);
         }
         res.type("application/json");
-        Gson gson = new Gson();
-        String json = gson.toJson(registerResponse);
-        return json;
+        return new Gson().toJson(registerResponse);
     }
 }

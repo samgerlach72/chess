@@ -9,20 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding correct (or mostly correct) impl of RegisterHandler">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding Normal User Registration Test Passed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/ClearApplicationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/ClearApplicationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,14 +103,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
@@ -122,6 +114,22 @@
       <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
       <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StandardAPITests.registerTwice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
+      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
+      <option name="METHOD_NAME" value="registerTwice" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,9 +168,9 @@
       <list>
         <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.StandardAPITests.registerTwice" />
         <item itemvalue="JUnit.StandardAPITests.successRegister" />
         <item itemvalue="JUnit.passoffTests.serverTests in chess" />
-        <item itemvalue="JUnit.All in chess" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698114348937</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Adding Normal User Registration Test Passed">
+      <option name="closed" value="true" />
+      <created>1698117860297</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698117860297</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -278,7 +294,8 @@
     <MESSAGE value="Adding phase 2" />
     <MESSAGE value="Adding handlers and whatnot" />
     <MESSAGE value="Adding correct (or mostly correct) impl of RegisterHandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correct (or mostly correct) impl of RegisterHandler" />
+    <MESSAGE value="Adding Normal User Registration Test Passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding Normal User Registration Test Passed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -300,6 +317,11 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

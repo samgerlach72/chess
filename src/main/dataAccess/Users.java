@@ -19,19 +19,27 @@ public class Users {
         users.clear();
     }
     public void addUser(User user) throws DataAccessException{
+        if(user.getEmail() == null || user.getUsername() == null || user.getPassword() ==null){
+            throw new DataAccessException("Error: bad request");
+        }
         for(User existingUser: users){
             if(existingUser.getUsername().equals(user.getUsername())){
-                throw new DataAccessException("already taken");
+                throw new DataAccessException("Error: already taken");
             }
             if(existingUser.getEmail().equals(user.getEmail())){
-                throw new DataAccessException("already taken");
+                throw new DataAccessException("Error: already taken");
             }
         }
-        if(!users.add(user)){
-            throw new DataAccessException("should not be equal error"); //fixme
-        }
+        users.add(user);
     }
-    boolean authenticateUser(User user){
-        return users.contains(user);
+    public void authenticateUser(User user) throws DataAccessException{    //if it hits return, user is authenticated
+        for(User existingUser: users){
+            if(existingUser.getUsername().equals(user.getUsername())){
+                if(existingUser.getPassword().equals(user.getPassword())){
+                    return;
+                }
+            }
+        }
+        throw new DataAccessException("Error: unauthorized");
     }
 }

@@ -41,7 +41,7 @@ public class Games {
                 game.setWhiteUsername(username);
             }
             else{
-                throw new DataAccessException("already taken");
+                throw new DataAccessException("Error: already taken");
             }
         }
         else if(playerColor.equals("BLACK")){
@@ -49,11 +49,11 @@ public class Games {
                 game.setBlackUsername(username);
             }
             else{
-                throw new DataAccessException("already taken");
+                throw new DataAccessException("Error: already taken");
             }
         }
         else{
-            throw new DataAccessException("bad request");
+            throw new DataAccessException("Error: bad request");
         }
     }
 //    public void removeGame(int gameID){

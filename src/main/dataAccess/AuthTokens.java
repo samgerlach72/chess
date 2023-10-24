@@ -18,11 +18,17 @@ public class AuthTokens {
     private HashSet<AuthToken> authTokens = new HashSet<>();
     public void authenticate(AuthToken authToken) throws DataAccessException{
         if(!authTokens.contains(authToken)){
-            throw new DataAccessException("unauthorized");
+            throw new DataAccessException("Error: unauthorized");
         }
     }
-    public void removeToken(AuthToken authToken){
-        authTokens.remove(authToken);
+    public void removeToken(String authTokenString) throws DataAccessException{
+        for(AuthToken authToken: authTokens){
+            if(authToken.getAuthToken().equals(authTokenString)){
+                authTokens.remove(authToken);
+                return;
+            }
+        }
+        throw new DataAccessException("Error: unauthorized");
     }
     public boolean add(AuthToken authToken){
         return authTokens.add(authToken);

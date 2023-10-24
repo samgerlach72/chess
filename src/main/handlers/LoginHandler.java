@@ -12,7 +12,7 @@ public class LoginHandler {
         if(loginResponse.getMessage() == null){
             res.status(200);
         }
-        else if(loginResponse.getMessage().equals("unauthorized")){
+        else if(loginResponse.getMessage().equals("Error: unauthorized")){
             res.status(401);
         }
         else{
