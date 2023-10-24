@@ -19,7 +19,7 @@ public class Games {
         return instance;
     }
 
-    private HashSet<Game> games;
+    private HashSet<Game> games = new HashSet<>();
     public void insertGame(Game gameToAdd) throws DataAccessException{
         games.add(gameToAdd);
     }

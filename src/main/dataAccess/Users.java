@@ -14,7 +14,7 @@ public class Users {
         }
         return instance;
     }
-    private HashSet<User> users;
+    private HashSet<User> users = new HashSet<>();
     public void clearUsers(){
         users.clear();
     }

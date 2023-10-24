@@ -15,7 +15,7 @@ public class AuthTokens {
         }
         return instance;
     }
-    private HashSet<AuthToken> authTokens;
+    private HashSet<AuthToken> authTokens = new HashSet<>();
     public void authenticate(AuthToken authToken) throws DataAccessException{
         if(!authTokens.contains(authToken)){
             throw new DataAccessException("unauthorized");

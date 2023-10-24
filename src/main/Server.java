@@ -10,10 +10,13 @@ public class Server {
         Spark.port(8080);
         Spark.externalStaticFileLocation("path/to/web/folder");
 
+        //declaring handlers
+        RegisterHandler registerHandler = new RegisterHandler();
+
         //clears entire application database
         Spark.delete("/db", ClearApplicationHandler::new);
         //registers new user
-        Spark.post("/user", RegisterHandler::new);
+        Spark.post("/user", registerHandler::register);
         //logs in user
         Spark.post("/session", LoginHandler::new);
         //logs out user
