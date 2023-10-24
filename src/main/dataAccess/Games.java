@@ -1,8 +1,6 @@
 package dataAccess;
 
-import models.AuthToken;
 import models.Game;
-import models.User;
 
 import java.util.HashSet;
 
@@ -21,6 +19,9 @@ public class Games {
 
     private HashSet<Game> games = new HashSet<>();
     public void insertGame(Game gameToAdd) throws DataAccessException{
+        if(gameToAdd.getGameName() == null){
+            throw new DataAccessException("Error: bad request");
+        }
         games.add(gameToAdd);
     }
     public Game findGame(int gameID){
@@ -31,7 +32,7 @@ public class Games {
         }
         return null; // If no matching game is found
     }
-    public HashSet<Game> findAllGames(){
+    public HashSet<Game> getAllGames(){
         return games;
     }
     public void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
@@ -61,5 +62,9 @@ public class Games {
 //    }
     public void clearGames(){
         games.clear();
+    }
+
+    public int getNumGames(){
+        return games.size();
     }
 }

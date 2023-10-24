@@ -1,6 +1,7 @@
 package models;
 import chess.ChessGame;
 import chess.ChessGameImpl;
+import dataAccess.Games;
 
 import java.util.Objects;
 
@@ -10,8 +11,8 @@ public class Game {
     private String whiteUsername;
     private String blackUsername;
     private String gameName;
-    public Game(int gameID, String gameName){
-        this.gameID = gameID;
+    public Game(String gameName){
+        this.gameID = Games.getInstance().getNumGames() + 1;
         this.gameName = gameName;
     }
     public int getGameID(){

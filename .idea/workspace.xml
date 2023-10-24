@@ -9,19 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding Normal User Registration Test Passed">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding 10 tests passed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/LoginResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/LogoutResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -271,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698117860297</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Adding 10 tests passed">
+      <option name="closed" value="true" />
+      <created>1698124709023</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1698124709023</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -295,7 +298,8 @@
     <MESSAGE value="Adding handlers and whatnot" />
     <MESSAGE value="Adding correct (or mostly correct) impl of RegisterHandler" />
     <MESSAGE value="Adding Normal User Registration Test Passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding Normal User Registration Test Passed" />
+    <MESSAGE value="Adding 10 tests passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding 10 tests passed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

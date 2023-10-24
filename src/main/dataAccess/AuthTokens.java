@@ -16,10 +16,13 @@ public class AuthTokens {
         return instance;
     }
     private HashSet<AuthToken> authTokens = new HashSet<>();
-    public void authenticate(AuthToken authToken) throws DataAccessException{
-        if(!authTokens.contains(authToken)){
-            throw new DataAccessException("Error: unauthorized");
+    public void authenticate(String authTokenString) throws DataAccessException{
+        for(AuthToken authToken: authTokens){
+            if(authToken.getAuthToken().equals(authTokenString)){
+                return;
+            }
         }
+        throw new DataAccessException("Error: unauthorized");
     }
     public void removeToken(String authTokenString) throws DataAccessException{
         for(AuthToken authToken: authTokens){

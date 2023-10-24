@@ -1,10 +1,6 @@
 package services;
 import dataAccess.AuthTokens;
 import dataAccess.DataAccessException;
-import dataAccess.Users;
-import models.AuthToken;
-import models.User;
-import responses.LoginResponse;
 import responses.LogoutResponse;
 
 public class LogoutService {
