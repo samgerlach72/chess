@@ -3,7 +3,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class AuthToken {
-    private String authToken;
+    final private String authToken;
     private final String username;
     public AuthToken(String username){
         this.username = username;

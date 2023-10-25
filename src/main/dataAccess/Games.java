@@ -63,7 +63,6 @@ public class Games {
     public void clearGames(){
         games.clear();
     }
-    //used to generate gameID
     public int getNumGames(){
         return games.size();
     }

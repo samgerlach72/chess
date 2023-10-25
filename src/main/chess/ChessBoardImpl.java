@@ -1,10 +1,5 @@
 package chess;
-
-import chess.ChessBoard;
-import chess.ChessPiece;
 import chess.ChessPieceImpl.*;
-import chess.ChessPosition;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -91,12 +86,11 @@ public class ChessBoardImpl implements ChessBoard {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ChessBoardImpl that = (ChessBoardImpl) o;
-        return Arrays.equals(chessBoard, that.chessBoard);
+        return Arrays.deepEquals(chessBoard, that.chessBoard);
     }
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(chessBoard);
+        return Arrays.deepHashCode(chessBoard);
     }
-
 }

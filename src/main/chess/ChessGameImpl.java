@@ -6,6 +6,7 @@ import chess.ChessPieceImpl.Queen;
 import chess.ChessPieceImpl.Rook;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class ChessGameImpl implements ChessGame {
@@ -155,5 +156,16 @@ public class ChessGameImpl implements ChessGame {
 
         //if it puts king in check the move is invalid
         return !inCheck;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessGameImpl chessGame = (ChessGameImpl) o;
+        return teamTurn == chessGame.teamTurn && Objects.equals(chessBoard, chessGame.chessBoard);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(teamTurn, chessBoard);
     }
 }

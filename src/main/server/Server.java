@@ -8,7 +8,7 @@ public class Server {
     }
     private void run() {
         Spark.port(8080);
-        Spark.externalStaticFileLocation("path/to/web/folder");
+        Spark.externalStaticFileLocation("web");
 
         //clears entire application database
         Spark.delete("/db", ClearApplicationHandler::clearApplication);

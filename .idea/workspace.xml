@@ -9,35 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="All StandardAPITests passed">
-      <change afterPath="$PROJECT_DIR$/src/main/handlers/GetResponseStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/serviceTests/ServiceTests.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Code cleanup/making service methods static">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ClearApplicationHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/CreateGameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/JoinGameHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/ListGamesHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/LogoutHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/handlers/RegisterHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessBoardImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/models/AuthToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/AuthToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/CreateGameRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/JoinGameRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/LoginRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/requests/RegisterRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/CreateGameResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/responses/RegisterResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/serviceTests/ServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/serviceTests/ServiceTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,10 +95,33 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StandardAPITests">
+  <component name="RunManager" selected="JUnit.All in chess">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="chess" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTests" />
+      <option name="MAIN_CLASS_NAME" value="serviceTests.ServiceTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,45 +157,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests.registerTwice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="registerTwice" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StandardAPITests.successRegister" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="METHOD_NAME" value="successRegister" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StandardAPITests" />
+        <item itemvalue="JUnit.All in chess" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.ServiceTests" />
+        <item itemvalue="JUnit.StandardAPITests" />
         <item itemvalue="JUnit.StandardAPITests.badGameIDWatch" />
-        <item itemvalue="JUnit.StandardAPITests.registerTwice" />
-        <item itemvalue="JUnit.StandardAPITests.successRegister" />
       </list>
     </recent_temporary>
   </component>
@@ -320,7 +296,23 @@
       <option name="project" value="LOCAL" />
       <updated>1698165508274</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Code cleanup/making service methods static">
+      <option name="closed" value="true" />
+      <created>1698176350512</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1698176350512</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Code cleanup/making service methods static">
+      <option name="closed" value="true" />
+      <created>1698176375424</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1698176375424</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,7 +340,8 @@
     <MESSAGE value="Adding 12 tests passed" />
     <MESSAGE value="Adding unversioned files" />
     <MESSAGE value="All StandardAPITests passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="All StandardAPITests passed" />
+    <MESSAGE value="Code cleanup/making service methods static" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup/making service methods static" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -370,11 +363,6 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/passoffTests/serverTests/StandardAPITests.java</url>
-          <line>184</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

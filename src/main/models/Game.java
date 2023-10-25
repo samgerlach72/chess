@@ -1,13 +1,11 @@
 package models;
-import chess.ChessGame;
 import chess.ChessGameImpl;
 import dataAccess.Games;
-
 import java.util.HashSet;
 import java.util.Objects;
 
 public class Game {
-    private ChessGame chessGame = new ChessGameImpl();
+    private ChessGameImpl chessGame = new ChessGameImpl();
     private int gameID;
     private String whiteUsername;
     private String blackUsername;
@@ -22,9 +20,6 @@ public class Game {
     }
     public int getGameID(){
         return gameID;
-    }
-    public ChessGame getChessGame() {
-        return chessGame;
     }
     public String getWhiteUsername() {
         return whiteUsername;
@@ -41,6 +36,10 @@ public class Game {
     public void setBlackUsername(String blackUsername) {
         this.blackUsername = blackUsername;
     }
+    public void setGameID(int gameID) {
+        this.gameID = gameID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -50,6 +49,6 @@ public class Game {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(chessGame, gameID, whiteUsername, blackUsername, gameName);
+        return Objects.hash(gameID, whiteUsername, blackUsername, gameName);
     }
 }
