@@ -9,10 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding phase 3 final version">
-      <change afterPath="$PROJECT_DIR$/src/starter/dataAccess/Database.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/passoffTests/serverTests/PersistenceTest.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding phase 4 setup">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LogoutService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LogoutService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/dataAccess/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/starter/dataAccess/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +94,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersistenceTest">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <module name="chess" />
@@ -148,9 +157,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PersistenceTest" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.ServiceTests" />
+        <item itemvalue="JUnit.PersistenceTest" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.StandardAPITests" />
       </list>
@@ -309,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698192328089</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Adding phase 4 setup">
+      <option name="closed" value="true" />
+      <created>1699295953932</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699295953932</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +356,8 @@
     <MESSAGE value="All StandardAPITests passed" />
     <MESSAGE value="Code cleanup/making service methods static" />
     <MESSAGE value="Adding phase 3 final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 3 final version" />
+    <MESSAGE value="Adding phase 4 setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 4 setup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

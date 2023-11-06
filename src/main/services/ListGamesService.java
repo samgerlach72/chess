@@ -8,7 +8,7 @@ public class ListGamesService {
     public static ListGamesResponse listGames(String authToken) {
         ListGamesResponse response = new ListGamesResponse();
         try {
-            AuthTokens.getInstance().authenticate(authToken);
+            AuthTokens.authenticate(authToken);
             response.setGames(Games.getInstance().getAllGames());
         } catch (DataAccessException exception) {
             response.setMessage(exception.getMessage());
