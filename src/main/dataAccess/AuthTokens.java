@@ -2,40 +2,64 @@ package dataAccess;
 import models.AuthToken;
 import java.util.HashSet;
 
+import java.sql.SQLException;
+import dataAccess.Database;
+
 public class AuthTokens {
-    //singleton instance
-    private static AuthTokens instance;
-    //Private constructor to prevent external instantiation
-    private AuthTokens(){}
-    //Public method to access the singleton instance
-    public static AuthTokens getInstance() {
-        if (instance == null) {
-            instance = new AuthTokens();
-        }
-        return instance;
-    }
-    private HashSet<AuthToken> authTokens = new HashSet<>();
-    public String authenticate(String authTokenString) throws DataAccessException{  //returns username of user if authentication succeeds
-        for(AuthToken authToken: authTokens){
-            if(authToken.getAuthToken().equals(authTokenString)){
-                return authToken.getUsername();
+    public static String authenticate(String authTokenString) throws DataAccessException{  //returns username of user if authentication succeeds
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("SELECT username FROM AuthTokens WHERE authToken=?")){
+                preparedStatement.setString(1, authTokenString);
+                try (var rs = preparedStatement.executeQuery()) {
+                    if(rs.next()) {
+                        System.out.println(rs.getString("username"));
+                        return rs.getString("username");
+                    }
+                }
             }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
         }
-        throw new DataAccessException("Error: unauthorized");
+        throw new DataAccessException("Error: unauthorized");   //if rs returns empty, authentication fails
     }
-    public void removeToken(String authTokenString) throws DataAccessException{
-        for(AuthToken authToken: authTokens){
-            if(authToken.getAuthToken().equals(authTokenString)){
-                authTokens.remove(authToken);
-                return;
+    public static void removeToken(String authTokenString) throws DataAccessException{
+        boolean noMatchingToken = false;
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("DELETE FROM AuthTokens WHERE authToken=?")){
+                preparedStatement.setString(1, authTokenString);
+                if (preparedStatement.executeUpdate() == 0) {   //if no entries deleted
+                    noMatchingToken = true;
+                }
             }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
         }
-        throw new DataAccessException("Error: unauthorized");
+        if(noMatchingToken){
+            throw new DataAccessException("Error: unauthorized");
+        }
     }
-    public boolean add(AuthToken authToken){
-        return authTokens.add(authToken);
+    public static void add(AuthToken authToken){
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("INSERT INTO AuthTokens (username, authToken) VALUES(?, ?)")){
+                preparedStatement.setString(1, authToken.getUsername());
+                preparedStatement.setString(2, authToken.getAuthToken());
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
-    public void clearTokens(){
-        authTokens.clear();
+    public static void clearTokens(){
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("TRUNCATE TABLE AuthTokens")){
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

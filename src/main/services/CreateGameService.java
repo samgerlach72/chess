@@ -10,7 +10,7 @@ public class CreateGameService {
     public static CreateGameResponse createGame(CreateGameRequest request, String authToken) {
         CreateGameResponse response = new CreateGameResponse();
         try {
-            AuthTokens.getInstance().authenticate(authToken);
+            AuthTokens.authenticate(authToken);
             Game newGame = new Game(request.getGameName());
             Games.getInstance().insertGame(newGame);
             response.setGameID(newGame.getGameID());

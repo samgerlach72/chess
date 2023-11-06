@@ -7,7 +7,7 @@ public class LogoutService {
     public static LogoutResponse logout(String authToken) {
         LogoutResponse response = new LogoutResponse();
         try {
-            AuthTokens.getInstance().removeToken(authToken);
+            AuthTokens.removeToken(authToken);
         } catch (DataAccessException exception) {
             response.setMessage(exception.getMessage());
         }

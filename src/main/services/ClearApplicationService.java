@@ -9,7 +9,7 @@ public class ClearApplicationService {
         ClearApplicationResponse response = new ClearApplicationResponse();
         Users.getInstance().clearUsers();
         Games.getInstance().clearGames();
-        AuthTokens.getInstance().clearTokens();
+        AuthTokens.clearTokens();
         return response;
     }
 }
