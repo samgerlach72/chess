@@ -12,7 +12,7 @@ public class RegisterService {
         RegisterResponse response = new RegisterResponse();
         User newUser = new User(request.getUsername(), request.getPassword(), request.getEmail());
         try {
-            Users.getInstance().addUser(newUser);
+            Users.addUser(newUser);
             response.setUsername(request.getUsername());
             AuthToken authToken = new AuthToken(request.getUsername());
             AuthTokens.add(authToken);

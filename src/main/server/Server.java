@@ -51,17 +51,15 @@ public class Server {
                 createTableStatement.executeUpdate();
             }
 
-
-            //create tables for Games and Users
-//            var createUsersTable = """
-//            CREATE TABLE IF NOT EXISTS Users (
-//                username TEXT NOT NULL,
-//                authToken VARCHAR(255) NOT NULL,
-//                PRIMARY KEY (authToken)
-//            )""";
-//            try (var createTableStatement = conn.prepareStatement(createAuthTokensTable)) {
-//                createTableStatement.executeUpdate();
-//            }
+            var createUsersTable = """
+            CREATE TABLE IF NOT EXISTS Users (
+                username TEXT NOT NULL,
+                password TEXT NOT NULL,
+                email TEXT NOT NULL
+            )""";
+            try (var createTableStatement = conn.prepareStatement(createUsersTable)) {
+                createTableStatement.executeUpdate();
+            }
         } catch (DataAccessException e) {
             throw new RuntimeException(e);  //fixme
         }

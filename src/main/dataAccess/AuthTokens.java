@@ -13,7 +13,7 @@ public class AuthTokens {
                 preparedStatement.setString(1, authTokenString);
                 try (var rs = preparedStatement.executeQuery()) {
                     if(rs.next()) {
-                        System.out.println(rs.getString("username"));
+//                        System.out.println(rs.getString("username"));
                         return rs.getString("username");
                     }
                 }
@@ -24,21 +24,18 @@ public class AuthTokens {
         throw new DataAccessException("Error: unauthorized");   //if rs returns empty, authentication fails
     }
     public static void removeToken(String authTokenString) throws DataAccessException{
-        boolean noMatchingToken = false;
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("DELETE FROM AuthTokens WHERE authToken=?")){
                 preparedStatement.setString(1, authTokenString);
-                if (preparedStatement.executeUpdate() == 0) {   //if no entries deleted
-                    noMatchingToken = true;
+                if (preparedStatement.executeUpdate() != 0) {   //if entries deleted return
+                    return;
                 }
             }
         } catch (SQLException | DataAccessException e) {
             throw new RuntimeException(e);
         }
-        if(noMatchingToken){
-            throw new DataAccessException("Error: unauthorized");
-        }
+        throw new DataAccessException("Error: unauthorized");
     }
     public static void add(AuthToken authToken){
         try (var conn = Database.getConnection()) {

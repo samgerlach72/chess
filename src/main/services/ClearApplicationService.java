@@ -7,7 +7,7 @@ import responses.ClearApplicationResponse;
 public class ClearApplicationService {
     public static ClearApplicationResponse clearApplication() {
         ClearApplicationResponse response = new ClearApplicationResponse();
-        Users.getInstance().clearUsers();
+        Users.clearUsers();
         Games.getInstance().clearGames();
         AuthTokens.clearTokens();
         return response;
