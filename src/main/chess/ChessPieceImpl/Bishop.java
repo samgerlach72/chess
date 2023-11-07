@@ -15,8 +15,10 @@ public class Bishop implements ChessPiece {
 
     @Override
     public PieceType getPieceType() {
-        return PieceType.BISHOP;
+        return pieceType;
     }
+
+    PieceType pieceType = PieceType.BISHOP;
 
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {

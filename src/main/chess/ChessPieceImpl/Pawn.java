@@ -15,9 +15,10 @@ public class Pawn implements ChessPiece {
 
     @Override
     public PieceType getPieceType() {
-        return PieceType.PAWN;
+        return pieceType;
     }
 
+    PieceType pieceType = PieceType.PAWN;
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
         Set<ChessMove> moves = new HashSet<>();

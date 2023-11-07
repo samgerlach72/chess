@@ -15,8 +15,10 @@ public class Queen implements ChessPiece {
 
     @Override
     public PieceType getPieceType() {
-        return PieceType.QUEEN;
+        return pieceType;
     }
+
+    PieceType pieceType = PieceType.QUEEN;
 
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {

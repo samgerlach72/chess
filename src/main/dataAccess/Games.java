@@ -1,7 +1,12 @@
 package dataAccess;
 
+import chess.ChessGameImpl;
+import chess.ChessPiece;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import models.Game;
-
+import java.lang.reflect.Type;
+import java.sql.SQLException;
 import java.util.HashSet;
 
 public class Games {
@@ -16,24 +21,74 @@ public class Games {
         }
         return instance;
     }
-
     private HashSet<Game> games = new HashSet<>();
+
+
+
     public void insertGame(Game gameToAdd) throws DataAccessException{
         if(gameToAdd.getGameName() == null){
             throw new DataAccessException("Error: bad request");
         }
-        games.add(gameToAdd);
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("INSERT INTO Games (gameID, gameName, observers, chessGame) VALUES(?, ?, ?, ?)")){
+                preparedStatement.setInt(1, gameToAdd.getGameID());
+                preparedStatement.setString(2, gameToAdd.getGameName());
+                preparedStatement.setString(3, new Gson().toJson(gameToAdd.getObservers()));
+                preparedStatement.setString(4, new Gson().toJson(gameToAdd.getChessGame()));
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
     public Game findGame(int gameID) throws DataAccessException{
-        for (Game game : games) {
-            if (game.getGameID() == gameID) {
-                return game; // Return the Game with the specified gameID
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("SELECT * FROM Games WHERE gameID=?")){
+                preparedStatement.setInt(1, gameID);
+                try (var rs = preparedStatement.executeQuery()) {
+                    if(rs.next()) {
+                        Game foundGame = new Game();
+                        foundGame.setGameID(rs.getInt("gameID"));
+                        foundGame.setWhiteUsername(rs.getString("whiteUsername"));
+                        foundGame.setBlackUsername(rs.getString("blackUsername"));
+                        foundGame.setGameName(rs.getString("gameName"));
+                        foundGame.setChessGame(deserializeGame(rs.getString("chessGame")));
+//                        foundGame.setChessGame(new Gson().fromJson(rs.getString("chessGame"), ChessGameImpl.class));
+                        foundGame.setObservers(new Gson().fromJson(rs.getString("observers"), new TypeToken<HashSet<String>>(){}.getType()));
+                        return foundGame;
+                    }
+                }
             }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
         }
-        throw new DataAccessException("Error: bad request"); // If no matching game is found
+        throw new DataAccessException("Error: bad request");   //if rs returns empty, no matching game in db
     }
     public HashSet<Game> getAllGames(){
-        return games;
+        HashSet<Game> allGames = new HashSet<>();
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("SELECT * FROM Games")){
+                try (var rs = preparedStatement.executeQuery()) {
+                    while(rs.next()) {
+                        Game foundGame = new Game();
+                        foundGame.setGameID(rs.getInt("gameID"));
+                        foundGame.setWhiteUsername(rs.getString("whiteUsername"));
+                        foundGame.setBlackUsername(rs.getString("blackUsername"));
+                        foundGame.setGameName(rs.getString("gameName"));
+                        foundGame.setChessGame(deserializeGame(rs.getString("chessGame")));
+//                        foundGame.setChessGame(new Gson().fromJson(rs.getString("chessGame"), ChessGameImpl.class));
+                        foundGame.setObservers(new Gson().fromJson(rs.getString("observers"), new TypeToken<HashSet<String>>(){}.getType()));
+                        allGames.add(foundGame);
+                    }
+                }
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+        return allGames;
     }
     public void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
         Game game = findGame(gameID);
@@ -59,11 +114,73 @@ public class Games {
         else{
             throw new DataAccessException("Error: bad request");
         }
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("UPDATE Games Set whiteUsername=?, blackUsername=?, observers=? WHERE gameID=?")){
+                preparedStatement.setString(1, game.getWhiteUsername());
+                preparedStatement.setString(2, game.getBlackUsername());
+                preparedStatement.setString(3, new Gson().toJson(game.getObservers()));
+                preparedStatement.setInt(4, gameID);
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void clearGames(){
-        games.clear();
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("TRUNCATE TABLE Games")){
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
     public int getNumGames(){
-        return games.size();
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("SELECT COUNT(*) FROM Games")){
+                try (var rs = preparedStatement.executeQuery()) {
+                    if (rs.next()) {
+                        return rs.getInt(1);
+                    }
+                }
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+        return 0;
+    }
+    public class ChessPieceAdapter implements JsonDeserializer<ChessPiece> {
+        public ChessPiece deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
+            switch(el.getAsJsonObject().get("pieceType").getAsString()){
+                case "ROOK" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.Rook.class);
+                }
+                case "QUEEN" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.Queen.class);
+                }
+                case "PAWN" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.Pawn.class);
+                }
+                case "KNIGHT" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.Knight.class);
+                }
+                case "KING" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.King.class);
+                }
+                case "BISHOP" -> {
+                    return new Gson().fromJson(el, chess.ChessPieceImpl.Bishop.class);
+                }
+                default ->
+                        throw new IllegalStateException("Unexpected value: " + el.getAsJsonObject().get("pieceType"));
+            }
+        }
+    }
+    private ChessGameImpl deserializeGame(String gameString) {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(ChessPiece.class, new ChessPieceAdapter());
+        return gsonBuilder.create().fromJson(gameString, ChessGameImpl.class);
     }
 }

@@ -60,6 +60,20 @@ public class Server {
             try (var createTableStatement = conn.prepareStatement(createUsersTable)) {
                 createTableStatement.executeUpdate();
             }
+
+            var createGameTable = """
+            CREATE TABLE IF NOT EXISTS Games (
+                gameID INT NOT NULL,
+                whiteUsername TEXT DEFAULT NULL,
+                blackUsername TEXT DEFAULT NULL,
+                gameName TEXT NOT NULL,
+                chessGame LONGTEXT NOT NULL,
+                observers LONGTEXT NOT NULL,
+                PRIMARY KEY (gameID)
+            )""";
+            try (var createTableStatement = conn.prepareStatement(createGameTable)) {
+                createTableStatement.executeUpdate();
+            }
         } catch (DataAccessException e) {
             throw new RuntimeException(e);  //fixme
         }

@@ -1,5 +1,4 @@
 package chess;
-import chess.*;
 import chess.ChessPieceImpl.Bishop;
 import chess.ChessPieceImpl.Knight;
 import chess.ChessPieceImpl.Queen;
@@ -122,6 +121,10 @@ public class ChessGameImpl implements ChessGame {
     @Override
     public ChessBoard getBoard() {
         return chessBoard;
+    }
+
+    public ChessGameImpl(){
+        chessBoard.resetBoard();
     }
 
     //self defined

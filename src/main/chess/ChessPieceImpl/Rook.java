@@ -15,8 +15,10 @@ public class Rook implements ChessPiece {
 
     @Override
     public PieceType getPieceType() {
-        return PieceType.ROOK;
+        return pieceType;
     }
+
+    PieceType pieceType = PieceType.ROOK;
 
     @Override
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {

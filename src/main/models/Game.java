@@ -11,6 +11,7 @@ public class Game {
     private String blackUsername;
     private String gameName;
     private HashSet<String> observers = new HashSet<>();
+    public Game(){}
     public Game(String gameName){
         this.gameID = Games.getInstance().getNumGames() + 1;
         this.gameName = gameName;
@@ -18,6 +19,7 @@ public class Game {
     public void addObserver(String username){
         observers.add(username);
     }
+
     public int getGameID(){
         return gameID;
     }
@@ -30,6 +32,13 @@ public class Game {
     public String getGameName() {
         return gameName;
     }
+    public ChessGameImpl getChessGame() {
+        return chessGame;
+    }
+    public HashSet<String> getObservers() {
+        return observers;
+    }
+
     public void setWhiteUsername(String whiteUsername) {
         this.whiteUsername = whiteUsername;
     }
@@ -38,6 +47,15 @@ public class Game {
     }
     public void setGameID(int gameID) {
         this.gameID = gameID;
+    }
+    public void setChessGame(ChessGameImpl chessGame) {
+        this.chessGame = chessGame;
+    }
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
+    }
+    public void setObservers(HashSet<String> observers) {
+        this.observers = observers;
     }
 
     @Override

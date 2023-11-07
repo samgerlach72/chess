@@ -1,9 +1,7 @@
 package dataAccess;
 import models.AuthToken;
-import java.util.HashSet;
 
 import java.sql.SQLException;
-import dataAccess.Database;
 
 public class AuthTokens {
     public static String authenticate(String authTokenString) throws DataAccessException{  //returns username of user if authentication succeeds
@@ -13,7 +11,6 @@ public class AuthTokens {
                 preparedStatement.setString(1, authTokenString);
                 try (var rs = preparedStatement.executeQuery()) {
                     if(rs.next()) {
-//                        System.out.println(rs.getString("username"));
                         return rs.getString("username");
                     }
                 }

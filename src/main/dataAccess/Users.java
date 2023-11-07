@@ -2,7 +2,7 @@ package dataAccess;
 import models.User;
 
 import java.sql.SQLException;
-import java.util.HashSet;
+
 
 public class Users {
     public static void clearUsers(){
