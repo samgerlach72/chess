@@ -10,22 +10,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 
 public class Games {
-    //singleton instance
-    private static Games instance;
-    //Private constructor to prevent external instantiation
-    private Games(){}
-    //Public method to access the singleton instance
-    public static Games getInstance() {
-        if (instance == null) {
-            instance = new Games();
-        }
-        return instance;
-    }
-    private HashSet<Game> games = new HashSet<>();
-
-
-
-    public void insertGame(Game gameToAdd) throws DataAccessException{
+    public static void add(Game gameToAdd) throws DataAccessException{
         if(gameToAdd.getGameName() == null){
             throw new DataAccessException("Error: bad request");
         }
@@ -42,7 +27,7 @@ public class Games {
             throw new RuntimeException(e);
         }
     }
-    public Game findGame(int gameID) throws DataAccessException{
+    private static Game findGame(int gameID) throws DataAccessException{
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("SELECT * FROM Games WHERE gameID=?")){
@@ -66,7 +51,7 @@ public class Games {
         }
         throw new DataAccessException("Error: bad request");   //if rs returns empty, no matching game in db
     }
-    public HashSet<Game> getAllGames(){
+    public static HashSet<Game> getAllGames(){
         HashSet<Game> allGames = new HashSet<>();
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
@@ -90,7 +75,7 @@ public class Games {
         }
         return allGames;
     }
-    public void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
+    public static void claimSpot(String username, int gameID, String playerColor) throws DataAccessException{
         Game game = findGame(gameID);
         if(playerColor == null){
             game.addObserver(username);
@@ -127,7 +112,7 @@ public class Games {
             throw new RuntimeException(e);
         }
     }
-    public void clearGames(){
+    public static void clearGames(){
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("TRUNCATE TABLE Games")){
@@ -137,7 +122,7 @@ public class Games {
             throw new RuntimeException(e);
         }
     }
-    public int getNumGames(){
+    public static int getNumGames(){
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("SELECT COUNT(*) FROM Games")){
@@ -152,7 +137,7 @@ public class Games {
         }
         return 0;
     }
-    public class ChessPieceAdapter implements JsonDeserializer<ChessPiece> {
+    private static class ChessPieceAdapter implements JsonDeserializer<ChessPiece> {
         public ChessPiece deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
             switch(el.getAsJsonObject().get("pieceType").getAsString()){
                 case "ROOK" -> {
@@ -173,12 +158,11 @@ public class Games {
                 case "BISHOP" -> {
                     return new Gson().fromJson(el, chess.ChessPieceImpl.Bishop.class);
                 }
-                default ->
-                        throw new IllegalStateException("Unexpected value: " + el.getAsJsonObject().get("pieceType"));
+                default -> throw new IllegalStateException("Unexpected value: " + el.getAsJsonObject().get("pieceType"));
             }
         }
     }
-    private ChessGameImpl deserializeGame(String gameString) {
+    private static ChessGameImpl deserializeGame(String gameString) {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(ChessPiece.class, new ChessPieceAdapter());
         return gsonBuilder.create().fromJson(gameString, ChessGameImpl.class);

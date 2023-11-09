@@ -12,7 +12,7 @@ public class CreateGameService {
         try {
             AuthTokens.authenticate(authToken);
             Game newGame = new Game(request.getGameName());
-            Games.getInstance().insertGame(newGame);
+            Games.add(newGame);
             response.setGameID(newGame.getGameID());
         } catch (DataAccessException exception) {
             response.setMessage(exception.getMessage());

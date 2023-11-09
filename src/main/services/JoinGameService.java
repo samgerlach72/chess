@@ -10,7 +10,7 @@ public class JoinGameService {
         JoinGameResponse response = new JoinGameResponse();
         try {
             String username = AuthTokens.authenticate(authToken);
-            Games.getInstance().claimSpot(username, request.getGameID(), request.getPlayerColor());
+            Games.claimSpot(username, request.getGameID(), request.getPlayerColor());
         } catch (DataAccessException exception) {
             response.setMessage(exception.getMessage());
         }

@@ -9,7 +9,7 @@ public class ListGamesService {
         ListGamesResponse response = new ListGamesResponse();
         try {
             AuthTokens.authenticate(authToken);
-            response.setGames(Games.getInstance().getAllGames());
+            response.setGames(Games.getAllGames());
         } catch (DataAccessException exception) {
             response.setMessage(exception.getMessage());
         }

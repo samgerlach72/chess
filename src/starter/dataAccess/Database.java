@@ -37,7 +37,7 @@ public class Database {
      * @param connection the connection to be closed.
      * @throws DataAccessException if a data access error occurs while closing the connection.
      */
-    public void closeConnection(Connection connection) throws DataAccessException {
+    public static void closeConnection(Connection connection) throws DataAccessException {
         if(connection != null) {
             try {
                 connection.close();

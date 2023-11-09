@@ -65,6 +65,7 @@ public class Server {
             CREATE TABLE IF NOT EXISTS Games (
                 gameID INT NOT NULL,
                 whiteUsername TEXT DEFAULT NULL,
+                
                 blackUsername TEXT DEFAULT NULL,
                 gameName TEXT NOT NULL,
                 chessGame LONGTEXT NOT NULL,

@@ -9,20 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding phase 4 correct Users implementation">
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="Adding phase 4 correct Games implementation">
+      <change afterPath="$PROJECT_DIR$/src/test/DAOTests/DAOTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessGameImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/chess/ChessPieceImpl/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/AuthTokens.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/models/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ClearApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/CreateGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/CreateGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/JoinGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/JoinGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/ListGamesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/ListGamesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/services/RegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter/dataAccess/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/starter/dataAccess/Database.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,47 +111,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersistenceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DAOTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="PATTERN" value="DAOTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.PersistenceTest" />
+      <option name="PACKAGE_NAME" value="DAOTests" />
+      <option name="MAIN_CLASS_NAME" value="DAOTests.DAOTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DAOTests.failAuthTokenAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="serviceTests.*" />
+          <option name="PATTERN" value="DAOTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="serviceTests" />
-      <option name="MAIN_CLASS_NAME" value="serviceTests.ServiceTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="DAOTests" />
+      <option name="MAIN_CLASS_NAME" value="DAOTests.DAOTests" />
+      <option name="METHOD_NAME" value="failAuthTokenAdd" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StandardAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DAOTests.successClaimSpot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoffTests.serverTests.*" />
+          <option name="PATTERN" value="DAOTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoffTests.serverTests" />
-      <option name="MAIN_CLASS_NAME" value="passoffTests.serverTests.StandardAPITests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="DAOTests" />
+      <option name="MAIN_CLASS_NAME" value="DAOTests.DAOTests" />
+      <option name="METHOD_NAME" value="successClaimSpot" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,10 +161,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.DAOTests" />
         <item itemvalue="JUnit.All in chess" />
-        <item itemvalue="JUnit.StandardAPITests" />
-        <item itemvalue="JUnit.ServiceTests" />
-        <item itemvalue="JUnit.PersistenceTest" />
+        <item itemvalue="JUnit.DAOTests.successClaimSpot" />
+        <item itemvalue="JUnit.DAOTests.failAuthTokenAdd" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699329351980</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Adding phase 4 correct Games implementation">
+      <option name="closed" value="true" />
+      <created>1699344022384</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1699344022384</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,7 +395,8 @@
     <MESSAGE value="Adding phase 4 correct authtoken implementation" />
     <MESSAGE value="Adding phase 4 fully correct authtoken implementation" />
     <MESSAGE value="Adding phase 4 correct Users implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 4 correct Users implementation" />
+    <MESSAGE value="Adding phase 4 correct Games implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 4 correct Games implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

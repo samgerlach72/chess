@@ -12,7 +12,7 @@ public class LoginService {
         LoginResponse response = new LoginResponse();
         User newUser = new User(request.getUsername(), request.getPassword(), null);
         try {
-            Users.authenticateUser(newUser);
+            Users.authenticate(newUser);
             response.setUsername(request.getUsername());
             AuthToken authToken = new AuthToken(request.getUsername());
             AuthTokens.add(authToken);

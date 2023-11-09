@@ -5,17 +5,7 @@ import java.sql.SQLException;
 
 
 public class Users {
-    public static void clearUsers(){
-        try (var conn = Database.getConnection()) {
-            conn.setCatalog("chess");
-            try(var preparedStatement = conn.prepareStatement("TRUNCATE TABLE Users")){
-                preparedStatement.executeUpdate();
-            }
-        } catch (SQLException | DataAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static void addUser(User user) throws DataAccessException{
+    public static void add(User user) throws DataAccessException{
         if(user.getEmail() == null || user.getUsername() == null || user.getPassword() ==null){
             throw new DataAccessException("Error: bad request");
         }
@@ -41,7 +31,7 @@ public class Users {
         }
         throw new DataAccessException("Error: already taken");
     }
-    public static void authenticateUser(User user) throws DataAccessException{    //if it hits return, user is authenticated
+    public static void authenticate(User user) throws DataAccessException{    //if it hits return, user is authenticated
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try (var checkStatement = conn.prepareStatement("SELECT username, password FROM Users WHERE username = ? AND password = ?")) {
@@ -57,5 +47,15 @@ public class Users {
             throw new RuntimeException(e);
         }
         throw new DataAccessException("Error: unauthorized");
+    }
+    public static void clearUsers(){
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try(var preparedStatement = conn.prepareStatement("TRUNCATE TABLE Users")){
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

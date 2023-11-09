@@ -13,7 +13,7 @@ public class Game {
     private HashSet<String> observers = new HashSet<>();
     public Game(){}
     public Game(String gameName){
-        this.gameID = Games.getInstance().getNumGames() + 1;
+        this.gameID = Games.getNumGames() + 1;
         this.gameName = gameName;
     }
     public void addObserver(String username){
