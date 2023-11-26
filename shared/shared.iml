@@ -9,21 +9,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="junit.jupiter" level="project" />
-    <orderEntry type="library" name="sparkjava.spark.core" level="project" />
-    <orderEntry type="library" name="slf4j.simple" level="project" />
-    <orderEntry type="library" name="google.code.gson" level="project" />
     <orderEntry type="module-library">
-      <library>
+      <library name="google.code.gson" type="repository">
+        <properties maven-id="com.google.code.gson:gson:2.10.1" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/libs" />
+          <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql.connector.java" level="project" />
-    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="module" module-name="chess" />
   </component>
 </module>

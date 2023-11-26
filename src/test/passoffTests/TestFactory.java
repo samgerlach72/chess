@@ -1,7 +1,6 @@
 package passoffTests;
 
 import chess.*;
-import chess.ChessPieceImpl.*;
 
 /**
  * Used for testing your code
@@ -22,22 +21,22 @@ public class TestFactory {
     public static ChessPiece getNewPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type){
         switch(type){
             case KING -> {
-                return new King(pieceColor);
+                return new chess.ChessPieceImpl.King(pieceColor);
             }
             case QUEEN -> {
-                return new Queen(pieceColor);
+                return new chess.ChessPieceImpl.Queen(pieceColor);
             }
             case BISHOP -> {
-                return new Bishop(pieceColor);
+                return new chess.ChessPieceImpl.Bishop(pieceColor);
             }
             case KNIGHT -> {
-                return new Knight(pieceColor);
+                return new chess.ChessPieceImpl.Knight(pieceColor);
             }
             case ROOK -> {
-                return new Rook(pieceColor);
+                return new chess.ChessPieceImpl.Rook(pieceColor);
             }
             case PAWN -> {
-                return new Pawn(pieceColor);
+                return new chess.ChessPieceImpl.Pawn(pieceColor);
             }
         }
         return null;
