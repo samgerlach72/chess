@@ -1,6 +1,5 @@
 package models;
 import chess.ChessGameImpl;
-import dataAccess.Games;
 import java.util.HashSet;
 import java.util.Objects;
 
@@ -13,7 +12,6 @@ public class Game {
     private HashSet<String> observers = new HashSet<>();
     public Game(){}
     public Game(String gameName){
-        this.gameID = Games.getNumGames() + 1;
         this.gameName = gameName;
     }
     public void addObserver(String username){

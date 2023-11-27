@@ -10,16 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="slf4j.simple" level="project" />
-    <orderEntry type="module-library" scope="TEST">
-      <library name="google.code.gson" type="repository">
-        <properties maven-id="com.google.code.gson:gson:2.10.1" />
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library name="junit.jupiter" type="repository">
         <properties maven-id="org.junit.jupiter:junit-jupiter:5.9.2" />
@@ -38,5 +28,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="shared" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
   </component>
 </module>

@@ -17,6 +17,7 @@ public class Games {
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("INSERT INTO Games (gameID, gameName, observers, chessGame) VALUES(?, ?, ?, ?)")){
+                gameToAdd.setGameID(Games.getNumGames() + 1);
                 preparedStatement.setInt(1, gameToAdd.getGameID());
                 preparedStatement.setString(2, gameToAdd.getGameName());
                 preparedStatement.setString(3, new Gson().toJson(gameToAdd.getObservers()));
