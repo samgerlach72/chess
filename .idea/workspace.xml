@@ -10,16 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/main/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/client/ServerFacade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/ui/EscapeSequences.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/EscapeSequences.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/shared.iml" beforeDir="false" afterPath="$PROJECT_DIR$/shared/shared.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/models/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/models/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dataAccess/Games.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dataAccess/Games.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701030256460</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Adding correct phase 5 impl, just need to change colors">
+      <option name="closed" value="true" />
+      <created>1701125089852</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701125089854</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +409,8 @@
     <MESSAGE value="Adding phase 4 correct Games implementation" />
     <MESSAGE value="Adding completed phase 4" />
     <MESSAGE value="Adding correct phase 5 setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correct phase 5 setup" />
+    <MESSAGE value="Adding correct phase 5 impl, just need to change colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding correct phase 5 impl, just need to change colors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

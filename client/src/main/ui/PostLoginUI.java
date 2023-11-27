@@ -15,18 +15,18 @@ public class PostLoginUI {
     public static void postLogin(String authToken) {
         while(true){
             Scanner scanner = new Scanner(System.in);
-            System.out.print("\n[LOGGED_IN] >>> ");
+            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLUE + "[LOGGED_IN] >>> ");
+            System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA);
             String userInput = scanner.nextLine();
             String[] inputComponents = userInput.split("\\s+");
             if(inputComponents[0].equalsIgnoreCase("help")){
-                System.out.print("""
-                        create <NAME> - a game\s
-                        list - games
-                        join <ID> [WHITE|BLACK|<empty>] - a game 
-                        observe <ID> - a game 
-                        logout - when you are done 
-                        quit - playing chess
-                        help - with possible commands""");
+                System.out.print("create <NAME> - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "list" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - games" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "join <ID> [WHITE|BLACK|<empty>]" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "observe <ID>" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "logout" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - when you are done" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "quit" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - playing chess" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                        + "help" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - with possible commands\n");
             }
             else if(inputComponents[0].equalsIgnoreCase("create")){
                 create(inputComponents, authToken);
@@ -49,14 +49,14 @@ public class PostLoginUI {
                 System.exit(0);
             }
             else{
-                System.out.print("invalid input");
+                System.out.print("invalid input\n");
             }
         }
     }
 
     private static void create(String[] inputComponents, String authToken){
         if(inputComponents.length != 2){
-            System.out.print("wrong input length for \"create\"");
+            System.out.print("wrong input length for \"create\"\n");
             return;
         }
         CreateGameRequest createGameRequest = new CreateGameRequest(inputComponents[1]);
@@ -67,10 +67,10 @@ public class PostLoginUI {
             throw new RuntimeException(e);  //fixme
         }
         if(createGameResponse.getMessage() != null){
-            System.out.print(createGameResponse.getMessage());
+            System.out.print(createGameResponse.getMessage() + "\n");
         }
         else{
-            System.out.print("successfully created game of ID " + createGameResponse.getGameID());
+            System.out.print("successfully created game of ID " + createGameResponse.getGameID() + "\n");
         }
     }
     private static void list(String authToken){
@@ -81,13 +81,13 @@ public class PostLoginUI {
             throw new RuntimeException(e);  //fixme
         }
         if(listGamesResponse.getMessage() != null){
-            System.out.print(listGamesResponse.getMessage());
+            System.out.print(listGamesResponse.getMessage() + "\n");
         }
         else{
             HashSet<Game> games = listGamesResponse.getGames();
             int gameNumber = 1;
             for(Game game : games){
-                System.out.print(gameNumber + ": Name: " + game.getGameName() + " Players: White: " + game.getWhiteUsername() + " Black: " + game.getBlackUsername() + "\n");
+                System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA + gameNumber + ": " + EscapeSequences.SET_TEXT_COLOR_GREEN + "Name: " + game.getGameName() + EscapeSequences.SET_TEXT_COLOR_RED +" Players: White: " + game.getWhiteUsername() + " Black: " + game.getBlackUsername() + "\n");
                 gameNumber += 1;
             }
         }
@@ -100,17 +100,17 @@ public class PostLoginUI {
             throw new RuntimeException(e);  //fixme
         }
         if(logoutResponse.getMessage() != null){
-            System.out.print(logoutResponse.getMessage());
+            System.out.print(logoutResponse.getMessage() + "\n");
             return false;
         }
         else{
-            System.out.print("successfully logged out");
+            System.out.print("successfully logged out\n");
             return true;
         }
     }
     private static void join(String[] inputComponents, String authToken){
         if(inputComponents.length != 3 && inputComponents.length != 2){
-            System.out.print("wrong input length for \"join/observe\"");
+            System.out.print("wrong input length for \"join/observe\"\n");
             return;
         }
         String playerColor = null;
@@ -126,7 +126,7 @@ public class PostLoginUI {
             throw new RuntimeException(e);  //fixme
         }
         if(joinGameResponse.getMessage() != null){
-            System.out.print(joinGameResponse.getMessage());
+            System.out.print(joinGameResponse.getMessage() + "\n");
         }
         else{
             if(playerColor != null){
@@ -146,7 +146,7 @@ public class PostLoginUI {
             throw new RuntimeException(e);  //fixme
         }
         if(listGamesResponse.getMessage() != null){
-            System.out.print("could not print board because list failed message: " + listGamesResponse.getMessage());
+            System.out.print("could not print board because list failed message: " + listGamesResponse.getMessage() + "\n");
         }
         else{
             HashSet<Game> games = listGamesResponse.getGames();
@@ -157,8 +157,9 @@ public class PostLoginUI {
                 }
             }
             printBlackBottom(gameToPrint);
-            System.out.print("\n\n");
+            System.out.print("\n");
             printWhiteBottom(gameToPrint);
+            System.out.print("\n");
         }
     }
     private static void printWhiteBottom(Game gameToPrint){
