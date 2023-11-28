@@ -103,12 +103,11 @@ public class ServerFacade {
             throw new RuntimeException(e);
         }
     }
-    public static ClearApplicationResponse clearApplication(String authToken){
+    public static ClearApplicationResponse clearApplication(){
         HttpClient client = HttpClient.newHttpClient();
         try{
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI("http://localhost:8080/db"))
-                    .header("Authorization", authToken)  // Include the AuthToken in the Authorization header
                     .DELETE()
                     .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

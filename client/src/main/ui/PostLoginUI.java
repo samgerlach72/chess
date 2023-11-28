@@ -100,7 +100,7 @@ public class PostLoginUI {
             return;
         }
         String playerColor = null;
-        int gameID = Integer.parseInt(inputComponents[1]);
+        int gameID = Integer.parseInt(inputComponents[1]);  //fixme if int is not entered on command line, program execution halts.
         if(inputComponents.length == 3) {
             playerColor = inputComponents[2];
         }

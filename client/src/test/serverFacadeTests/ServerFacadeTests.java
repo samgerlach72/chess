@@ -22,8 +22,7 @@ public class ServerFacadeTests {
     }
     @BeforeEach
     public void setup() {
-        ServerFacade.register(existingUser);
-        ServerFacade.clearApplication(ServerFacade.login(new LoginRequest(existingUser.getUsername(), existingUser.getPassword())).getAuthToken());
+        ServerFacade.clearApplication();
         //registering user
         RegisterResponse response = ServerFacade.register(existingUser);
         //obtaining authToken
@@ -253,7 +252,7 @@ public class ServerFacadeTests {
         createRequest = new CreateGameRequest("Lonely");
         ServerFacade.createGame(createRequest, userB.getAuthToken());
 
-        ClearApplicationResponse clearResult = ServerFacade.clearApplication(existingAuth);
+        ClearApplicationResponse clearResult = ServerFacade.clearApplication();
         //listing games after clear to check if empty
         ListGamesResponse listResult = ServerFacade.list(existingAuth);
 

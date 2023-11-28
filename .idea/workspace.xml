@@ -10,13 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/main/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/test/serverFacadeTests/ServerFacadeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/client/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/serverFacadeTests/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/serverFacadeTests/ServerFacadeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,6 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
     "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess/src/test/passoffTests",
@@ -150,8 +146,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.ServerFacadeTests" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.DAOTests" />
       </list>
@@ -382,7 +378,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701127179826</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Adding complete phase 5 impl">
+      <option name="closed" value="true" />
+      <created>1701133558105</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701133558105</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -421,7 +425,8 @@
     <MESSAGE value="Adding correct phase 5 setup" />
     <MESSAGE value="Adding correct phase 5 impl, just need to change colors" />
     <MESSAGE value="Adding good color sequences" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding good color sequences" />
+    <MESSAGE value="Adding complete phase 5 impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding complete phase 5 impl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
