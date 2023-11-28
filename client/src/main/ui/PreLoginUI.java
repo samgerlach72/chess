@@ -1,11 +1,9 @@
 package ui;
+
 import client.ServerFacade;
 import requests.LoginRequest;
 import requests.*;
 import responses.*;
-
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Scanner;
 
 public class PreLoginUI {
@@ -32,49 +30,41 @@ public class PreLoginUI {
                 System.exit(0);
             }
             else{
-                System.out.print("invalid input\n");
+                System.out.print("Invalid input.\n");
             }
         }
     }
 
     private static void register(String[] inputComponents){
         if(inputComponents.length != 4){
-            System.out.print("wrong input length for \"register\"\n");
+            System.out.print("Wrong input length for \"register.\"\n");
             return;
         }
         RegisterRequest registerRequest = new RegisterRequest(inputComponents[1], inputComponents[2], inputComponents[3]);
         RegisterResponse registerResponse;
-        try {
-            registerResponse = ServerFacade.register(registerRequest);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        registerResponse = ServerFacade.register(registerRequest);
         if(registerResponse.getMessage() != null){
             System.out.print(registerResponse.getMessage() + "\n");
         }
         else{
-            System.out.print("successfully logged in as " + registerResponse.getUsername() + "\n");
+            System.out.print("Successfully logged in as " + registerResponse.getUsername() + ". Type help for options.\n");
             PostLoginUI.postLogin(registerResponse.getAuthToken());
         }
     }
 
     private static void login(String[] inputComponents){
         if(inputComponents.length != 3){
-            System.out.print("wrong input length for \"login\"\n");
+            System.out.print("wrong input length for \"login.\"\n");
             return;
         }
         LoginRequest loginRequest = new LoginRequest(inputComponents[1], inputComponents[2]);
         LoginResponse loginResponse;
-        try {
-            loginResponse = ServerFacade.login(loginRequest);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        loginResponse = ServerFacade.login(loginRequest);
         if(loginResponse.getMessage() != null){
             System.out.print(loginResponse.getMessage() + "\n");
         }
         else{
-            System.out.print("successfully logged in as " + loginResponse.getUsername() + "\n");
+            System.out.print("Successfully logged in as " + loginResponse.getUsername() + ". Type help for options.\n");
             PostLoginUI.postLogin(loginResponse.getAuthToken());
         }
     }

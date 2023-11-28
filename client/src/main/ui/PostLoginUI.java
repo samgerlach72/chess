@@ -6,8 +6,6 @@ import client.ServerFacade;
 import models.Game;
 import requests.*;
 import responses.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -56,30 +54,22 @@ public class PostLoginUI {
 
     private static void create(String[] inputComponents, String authToken){
         if(inputComponents.length != 2){
-            System.out.print("wrong input length for \"create\"\n");
+            System.out.print("Wrong input length for \"create.\"\n");
             return;
         }
         CreateGameRequest createGameRequest = new CreateGameRequest(inputComponents[1]);
         CreateGameResponse createGameResponse;
-        try {
-            createGameResponse = ServerFacade.createGame(createGameRequest, authToken);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        createGameResponse = ServerFacade.createGame(createGameRequest, authToken);
         if(createGameResponse.getMessage() != null){
             System.out.print(createGameResponse.getMessage() + "\n");
         }
         else{
-            System.out.print("successfully created game of ID " + createGameResponse.getGameID() + "\n");
+            System.out.print("Successfully created game of ID " + createGameResponse.getGameID() + ".\n");
         }
     }
     private static void list(String authToken){
         ListGamesResponse listGamesResponse;
-        try {
-            listGamesResponse = ServerFacade.list(authToken);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        listGamesResponse = ServerFacade.list(authToken);
         if(listGamesResponse.getMessage() != null){
             System.out.print(listGamesResponse.getMessage() + "\n");
         }
@@ -94,23 +84,19 @@ public class PostLoginUI {
     }
     private static boolean logout(String authToken){   //returns true if logs out
         LogoutResponse logoutResponse;
-        try {
-            logoutResponse = ServerFacade.logout(authToken);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        logoutResponse = ServerFacade.logout(authToken);
         if(logoutResponse.getMessage() != null){
             System.out.print(logoutResponse.getMessage() + "\n");
             return false;
         }
         else{
-            System.out.print("successfully logged out\n");
+            System.out.print("Successfully logged out. Type help for options.\n");
             return true;
         }
     }
     private static void join(String[] inputComponents, String authToken){
         if(inputComponents.length != 3 && inputComponents.length != 2){
-            System.out.print("wrong input length for \"join/observe\"\n");
+            System.out.print("wrong input length for \"join/observe.\"\n");
             return;
         }
         String playerColor = null;
@@ -120,33 +106,25 @@ public class PostLoginUI {
         }
         JoinGameRequest joinGameRequest = new JoinGameRequest(playerColor, gameID);
         JoinGameResponse joinGameResponse;
-        try {
-            joinGameResponse = ServerFacade.joinGame(joinGameRequest, authToken);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        joinGameResponse = ServerFacade.joinGame(joinGameRequest, authToken);
         if(joinGameResponse.getMessage() != null){
             System.out.print(joinGameResponse.getMessage() + "\n");
         }
         else{
             if(playerColor != null){
-                System.out.print("successfully joined game as " + playerColor + "\n");
+                System.out.print("Successfully joined game as " + playerColor + ".\n");
             }
             else{
-                System.out.print("successfully joined game as observer\n");
+                System.out.print("Successfully joined game as observer.\n");
             }
             printBoard(gameID, authToken);
         }
     }
     private static void printBoard(int gameID, String authToken){
         ListGamesResponse listGamesResponse;
-        try {
-            listGamesResponse = ServerFacade.list(authToken);
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new RuntimeException(e);  //fixme
-        }
+        listGamesResponse = ServerFacade.list(authToken);
         if(listGamesResponse.getMessage() != null){
-            System.out.print("could not print board because list failed message: " + listGamesResponse.getMessage() + "\n");
+            System.out.print("Could not print board because list failed message: " + listGamesResponse.getMessage() + "\n");
         }
         else{
             HashSet<Game> games = listGamesResponse.getGames();

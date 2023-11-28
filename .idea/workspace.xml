@@ -10,8 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/main/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/test/serverFacadeTests/ServerFacadeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/client/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/client/ServerFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PreLoginUI.java" afterDir="false" />
     </list>
@@ -70,7 +73,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "openjdk-20",
     "last_opened_file_path": "/Users/samuelgerlach/CodingProjects/CS240/chess/src/test/passoffTests",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.19598584",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "inlay.hints"
@@ -129,18 +132,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DAOTests.successClaimSpot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="chess" />
+    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DAOTests.*" />
+          <option name="PATTERN" value="serverFacadeTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="DAOTests" />
-      <option name="MAIN_CLASS_NAME" value="DAOTests.DAOTests" />
-      <option name="METHOD_NAME" value="successClaimSpot" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="serverFacadeTests" />
+      <option name="MAIN_CLASS_NAME" value="serverFacadeTests.ServerFacadeTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,9 +151,9 @@
       <list>
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.All in chess" />
         <item itemvalue="JUnit.DAOTests" />
-        <item itemvalue="JUnit.DAOTests.successClaimSpot" />
       </list>
     </recent_temporary>
   </component>
@@ -372,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701125089854</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adding good color sequences">
+      <option name="closed" value="true" />
+      <created>1701127179826</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701127179826</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -410,7 +420,8 @@
     <MESSAGE value="Adding completed phase 4" />
     <MESSAGE value="Adding correct phase 5 setup" />
     <MESSAGE value="Adding correct phase 5 impl, just need to change colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding correct phase 5 impl, just need to change colors" />
+    <MESSAGE value="Adding good color sequences" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding good color sequences" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
