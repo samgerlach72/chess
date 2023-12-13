@@ -28,7 +28,7 @@ public class Games {
             throw new RuntimeException(e);
         }
     }
-    private static Game findGame(int gameID) throws DataAccessException{
+    public static Game findGame(int gameID) throws DataAccessException{
         try (var conn = Database.getConnection()) {
             conn.setCatalog("chess");
             try(var preparedStatement = conn.prepareStatement("SELECT * FROM Games WHERE gameID=?")){
@@ -41,7 +41,6 @@ public class Games {
                         foundGame.setBlackUsername(rs.getString("blackUsername"));
                         foundGame.setGameName(rs.getString("gameName"));
                         foundGame.setChessGame(deserializeGame(rs.getString("chessGame")));
-//                        foundGame.setChessGame(new Gson().fromJson(rs.getString("chessGame"), ChessGameImpl.class));
                         foundGame.setObservers(new Gson().fromJson(rs.getString("observers"), new TypeToken<HashSet<String>>(){}.getType()));
                         return foundGame;
                     }
@@ -167,5 +166,29 @@ public class Games {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(ChessPiece.class, new ChessPieceAdapter());
         return gsonBuilder.create().fromJson(gameString, ChessGameImpl.class);
+    }
+
+    public static void updateGame(Game updatedGame) throws DataAccessException {
+        if (updatedGame.getGameID() <= 0) {
+            throw new DataAccessException("Error: GameID cannot be null for update");
+        }
+        try (var conn = Database.getConnection()) {
+            conn.setCatalog("chess");
+            try (var preparedStatement = conn.prepareStatement(
+                    "UPDATE Games SET whiteUsername=?, blackUsername=?, gameName=?, chessGame=?, observers=? WHERE gameID=?")) {
+                preparedStatement.setString(1, updatedGame.getWhiteUsername());
+                preparedStatement.setString(2, updatedGame.getBlackUsername());
+                preparedStatement.setString(3, updatedGame.getGameName());
+                preparedStatement.setString(4, new Gson().toJson(updatedGame.getChessGame()));
+                preparedStatement.setString(5, new Gson().toJson(updatedGame.getObservers()));
+                preparedStatement.setInt(6, updatedGame.getGameID());
+                int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected == 0) {
+                    throw new DataAccessException("Error: No matching game found for update");
+                }
+            }
+        } catch (SQLException | DataAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

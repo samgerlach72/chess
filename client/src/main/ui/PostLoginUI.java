@@ -117,10 +117,11 @@ public class PostLoginUI {
             else{
                 System.out.print("Successfully joined game as observer.\n");
             }
-            printBoard(gameID, authToken);
+//            printBoard(gameID, authToken);
         }
+        new GameUI(authToken, gameID, playerColor);
     }
-    private static void printBoard(int gameID, String authToken){
+    public static void printBoard(int gameID, String authToken){
         ListGamesResponse listGamesResponse;
         listGamesResponse = ServerFacade.list(authToken);
         if(listGamesResponse.getMessage() != null){
@@ -140,7 +141,7 @@ public class PostLoginUI {
             System.out.print("\n");
         }
     }
-    private static void printWhiteBottom(Game gameToPrint){
+    public static void printWhiteBottom(Game gameToPrint){
         for(int i = 0; i < 10; ++i){
             System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
             System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
@@ -184,7 +185,7 @@ public class PostLoginUI {
         }
         System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
     }
-    private static void printBlackBottom(Game gameToPrint){
+    public static void printBlackBottom(Game gameToPrint){
         for(int i = 9; i >= 0; --i){
             System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
             System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);

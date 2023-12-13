@@ -1,6 +1,7 @@
 package server;
 import dataAccess.DataAccessException;
 import handlers.*;
+import server.websocket.WebSocketHandler;
 import spark.*;
 
 import java.sql.SQLException;
@@ -18,6 +19,11 @@ public class Server {
     private void run() {
         Spark.port(8080);
         Spark.externalStaticFileLocation("web");
+
+        WebSocketHandler webSocketHandler = new WebSocketHandler();
+
+        Spark.webSocket("/connect", webSocketHandler);
+//        Spark.get("/echo/:msg", (req, res) -> "HTTP response: " + req.params(":msg"));
 
         //clears entire application database
         Spark.delete("/db", ClearApplicationHandler::clearApplication);

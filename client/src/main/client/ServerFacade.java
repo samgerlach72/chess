@@ -117,7 +117,7 @@ public class ServerFacade {
         }
     }
 
-    private static class ChessPieceAdapter implements JsonDeserializer<ChessPiece> {
+    public static class ChessPieceAdapter implements JsonDeserializer<ChessPiece> {
         @Override
         public ChessPiece deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
             JsonObject jsonObject = json.getAsJsonObject();
