@@ -27,15 +27,15 @@ public class ChessGameImpl implements ChessGame {
             if(validMove(move)) {
                 allValidMoves.add(move);
             }
-            else{
-                continue;
-            }
         }
         return allValidMoves;
     }
 
     @Override
     public void makeMove(ChessMove move) throws InvalidMoveException {
+        if(gameOver){
+            throw new InvalidMoveException("Error: game is over cannot move now.");
+        }
         if(chessBoard.getPiece(move.getStartPosition()).getTeamColor() != getTeamTurn()){
             throw new InvalidMoveException("Invalid move.");
         }
@@ -130,6 +130,14 @@ public class ChessGameImpl implements ChessGame {
     //self defined
     TeamColor teamTurn = TeamColor.WHITE;
     ChessBoardImpl chessBoard = new ChessBoardImpl();
+    boolean gameOver = false;
+    public boolean resignGame(){
+        if(this.gameOver){
+            return false;
+        }
+        this.gameOver = true;
+        return true;
+    }
     private Collection<ChessMove> allPossibleMoves(TeamColor teamColor) {
         Set<ChessMove> moves = new HashSet<>();
         Collection<ChessPosition> positions = chessBoard.findAllPositions(teamColor);

@@ -69,6 +69,7 @@ public class GameUI {
 //                join(inputComponents);
 //            }
             else if(inputComponents[0].equalsIgnoreCase("quit")){
+                ws.close();
                 System.exit(0);
             }
 //            else if(inputComponents[0].equalsIgnoreCase("highlight")){

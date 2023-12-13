@@ -55,10 +55,22 @@ public class ServerMessage {
     //for NOTIFICATION and ERROR
     public ServerMessage(ServerMessageType type, String message) {
         this.serverMessageType = type;
-        this.message = message;
+        if(type == ServerMessageType.ERROR) {
+            this.errorMessage = message;
+        }
+        else{
+            this.message = message;
+        }
     }
+    private String errorMessage;
     private String message;
     public String getMessage() {
-        return message;
+        if(getServerMessageType() == ServerMessageType.ERROR) {
+            return this.errorMessage;
+        }
+        else{
+            return this.message;
+        }
     }
+
 }

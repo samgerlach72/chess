@@ -31,7 +31,23 @@ public class ConnectionManager {
                 removeList.add(c);
             }
         }
+        // Clean up any connections that were left open.
+        for (var c : removeList) {
+            connections.remove(c.authString);
+        }
+    }
 
+    public void sendToRoot(String authString, ServerMessage serverMessage) throws IOException {
+        var removeList = new ArrayList<Connection>();
+        for (var c : connections.values()) {
+            if (c.session.isOpen()) {
+                if (c.authString.equals(authString)) {
+                    c.send(new Gson().toJson(serverMessage));
+                }
+            } else {
+                removeList.add(c);
+            }
+        }
         // Clean up any connections that were left open.
         for (var c : removeList) {
             connections.remove(c.authString);
