@@ -50,7 +50,6 @@ public class WebSocketFacade extends Endpoint {
     public void sendMessage(UserGameCommand action) throws ResponseException {
         try {
             this.session.getBasicRemote().sendText(new Gson().toJson(action));
-
         } catch (IOException ex) {
             throw new ResponseException(500, ex.getMessage());
         }

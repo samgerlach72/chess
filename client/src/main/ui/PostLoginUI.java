@@ -1,7 +1,5 @@
 package ui;
 
-import chess.ChessPiece;
-import chess.ChessPositionImpl;
 import client.ServerFacade;
 import models.Game;
 import requests.*;
@@ -18,7 +16,7 @@ public class PostLoginUI {
             String userInput = scanner.nextLine();
             String[] inputComponents = userInput.split("\\s+");
             if(inputComponents[0].equalsIgnoreCase("help")){
-                System.out.print("create <NAME> - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA + "create <NAME>" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                         + "list" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - games" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                         + "join <ID> [WHITE|BLACK|<empty>]" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                         + "observe <ID>" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
@@ -77,7 +75,7 @@ public class PostLoginUI {
             HashSet<Game> games = listGamesResponse.getGames();
             int gameNumber = 1;
             for(Game game : games){
-                System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA + gameNumber + ": " + EscapeSequences.SET_TEXT_COLOR_GREEN + "Name: " + game.getGameName() + EscapeSequences.SET_TEXT_COLOR_RED +" Players: White: " + game.getWhiteUsername() + " Black: " + game.getBlackUsername() + "\n");
+                System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA + gameNumber + ": " + EscapeSequences.SET_TEXT_COLOR_GREEN + "Name: " + game.getGameName() + " ID: " + game.getGameID() + EscapeSequences.SET_TEXT_COLOR_RED +" Players: White: " + game.getWhiteUsername() + " Black: " + game.getBlackUsername() + "\n");
                 gameNumber += 1;
             }
         }
@@ -99,188 +97,27 @@ public class PostLoginUI {
             System.out.print("wrong input length for \"join/observe.\"\n");
             return;
         }
-        String playerColor = null;
-        int gameID = Integer.parseInt(inputComponents[1]);  //fixme if int is not entered on command line, program execution halts.
-        if(inputComponents.length == 3) {
-            playerColor = inputComponents[2];
-        }
-        JoinGameRequest joinGameRequest = new JoinGameRequest(playerColor, gameID);
-        JoinGameResponse joinGameResponse;
-        joinGameResponse = ServerFacade.joinGame(joinGameRequest, authToken);
-        if(joinGameResponse.getMessage() != null){
-            System.out.print(joinGameResponse.getMessage() + "\n");
-        }
-        else{
-            if(playerColor != null){
-                System.out.print("Successfully joined game as " + playerColor + ".\n");
+        try {
+            int gameID = Integer.parseInt(inputComponents[1]);
+            String playerColor = null;
+            if (inputComponents.length == 3) {
+                playerColor = inputComponents[2];
             }
-            else{
-                System.out.print("Successfully joined game as observer.\n");
-            }
-//            printBoard(gameID, authToken);
-        }
-        new GameUI(authToken, gameID, playerColor);
-    }
-    public static void printBoard(int gameID, String authToken){
-        ListGamesResponse listGamesResponse;
-        listGamesResponse = ServerFacade.list(authToken);
-        if(listGamesResponse.getMessage() != null){
-            System.out.print("Could not print board because list failed message: " + listGamesResponse.getMessage() + "\n");
-        }
-        else{
-            HashSet<Game> games = listGamesResponse.getGames();
-            Game gameToPrint = null;
-            for(Game game : games){
-                if (game.getGameID() == gameID){
-                    gameToPrint = game;
+            JoinGameRequest joinGameRequest = new JoinGameRequest(playerColor, gameID);
+            JoinGameResponse joinGameResponse = ServerFacade.joinGame(joinGameRequest, authToken);
+            if (joinGameResponse.getMessage() != null) {
+                System.out.println(joinGameResponse.getMessage());
+            } else {
+                if (playerColor != null) {
+                    System.out.println("Successfully joined game as " + playerColor + ". Type help for gameplay options.");
+                } else {
+                    System.out.println("Successfully joined game as an observer. Type help for gameplay options.");
                 }
+                // Only create a new GameUI if the join operation was successful
+                new GameUI(authToken, gameID, playerColor);
             }
-            printBlackBottom(gameToPrint);
-            System.out.print("\n");
-            printWhiteBottom(gameToPrint);
-            System.out.print("\n");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid gameID. Please enter a valid integer for gameID.");
         }
-    }
-    public static void printWhiteBottom(Game gameToPrint){
-        for(int i = 0; i < 10; ++i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            if(i == 0 || i == 9){
-                System.out.print("   ");
-            }
-            else{
-                System.out.print(" " + (char)(i - 1 + 'a') + " ");
-            }
-        }
-        System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-        for(int i = 8; i > 0; --i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            System.out.print(" " + i + " ");
-            for(int j = 1; j < 9; ++j){
-                if((j + i) % 2 == 0){
-                    System.out.print(EscapeSequences.SET_BG_COLOR_WHITE);
-                }
-                else{
-                    System.out.print(EscapeSequences.SET_BG_COLOR_BLACK);
-                }
-                ChessPiece pieceToPrint = gameToPrint.getChessGame().getBoard().getPiece(new ChessPositionImpl(i,j));
-                String pieceChar = pieceToChar(pieceToPrint);
-                System.out.print(pieceChar);
-            }
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            System.out.print(" " + i + " ");
-            System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-        }
-        for(int i = 0; i < 10; ++i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            if(i == 0 || i == 9){
-                System.out.print("   ");
-            }
-            else{
-                System.out.print(" " + (char)(i - 1 + 'a') + " ");
-            }
-        }
-        System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-    }
-    public static void printBlackBottom(Game gameToPrint){
-        for(int i = 9; i >= 0; --i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            if(i == 0 || i == 9){
-                System.out.print("   ");
-            }
-            else{
-                System.out.print(" " + (char)(i - 1 + 'a') + " ");
-            }
-        }
-        System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-        for(int i = 1; i < 9; ++i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            System.out.print(" " + i + " ");
-            for(int j = 8; j > 0; --j){
-                if((j + i) % 2 == 0){
-                    System.out.print(EscapeSequences.SET_BG_COLOR_WHITE);
-                }
-                else{
-                    System.out.print(EscapeSequences.SET_BG_COLOR_BLACK);
-                }
-                ChessPiece pieceToPrint = gameToPrint.getChessGame().getBoard().getPiece(new ChessPositionImpl(i,j));
-                String pieceChar = pieceToChar(pieceToPrint);
-                System.out.print(pieceChar);
-            }
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            System.out.print(" " + i + " ");
-            System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-        }
-        for(int i = 9; i >= 0; --i){
-            System.out.print(EscapeSequences.SET_BG_COLOR_LIGHT_GREY);
-            System.out.print(EscapeSequences.SET_TEXT_COLOR_BLACK);
-            if(i == 0 || i == 9){
-                System.out.print("   ");
-            }
-            else{
-                System.out.print(" " + (char)(i - 1 + 'a') + " ");
-            }
-        }
-        System.out.print(EscapeSequences.SET_BG_COLOR_DARK_GREY + "\n");
-    }
-    private static String pieceToChar(ChessPiece pieceToPrint){
-        if(pieceToPrint == null){
-            return "   ";
-        }
-        switch (pieceToPrint.getTeamColor()) {
-            case WHITE -> {
-                System.out.print(EscapeSequences.SET_TEXT_COLOR_RED);
-                switch (pieceToPrint.getPieceType()) {
-                    case KING -> {
-                        return EscapeSequences.WHITE_KING;
-                    }
-                    case QUEEN -> {
-                        return EscapeSequences.WHITE_QUEEN;
-                    }
-                    case BISHOP -> {
-                        return EscapeSequences.WHITE_BISHOP;
-                    }
-                    case KNIGHT -> {
-                        return EscapeSequences.WHITE_KNIGHT;
-                    }
-                    case ROOK -> {
-                        return EscapeSequences.WHITE_ROOK;
-                    }
-                    case PAWN -> {
-                        return EscapeSequences.WHITE_PAWN;
-                    }
-                }
-            }
-            case BLACK -> {
-                System.out.print(EscapeSequences.SET_TEXT_COLOR_BLUE);
-                switch (pieceToPrint.getPieceType()) {
-                    case KING -> {
-                        return EscapeSequences.BLACK_KING;
-                    }
-                    case QUEEN -> {
-                        return EscapeSequences.BLACK_QUEEN;
-                    }
-                    case BISHOP -> {
-                        return EscapeSequences.BLACK_BISHOP;
-                    }
-                    case KNIGHT -> {
-                        return EscapeSequences.BLACK_KNIGHT;
-                    }
-                    case ROOK -> {
-                        return EscapeSequences.BLACK_ROOK;
-                    }
-                    case PAWN -> {
-                        return EscapeSequences.BLACK_PAWN;
-                    }
-                }
-            }
-        }
-        return "   ";
     }
 }

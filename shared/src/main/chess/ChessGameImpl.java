@@ -22,7 +22,7 @@ public class ChessGameImpl implements ChessGame {
     @Override
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
         Collection<ChessMove> allMoves = chessBoard.getPiece(startPosition).pieceMoves(chessBoard, startPosition);
-        Set<ChessMove> allValidMoves = new HashSet<>();;
+        Set<ChessMove> allValidMoves = new HashSet<>();
         for(ChessMove move : allMoves){
             if(validMove(move)) {
                 allValidMoves.add(move);
@@ -35,6 +35,9 @@ public class ChessGameImpl implements ChessGame {
     public void makeMove(ChessMove move) throws InvalidMoveException {
         if(gameOver){
             throw new InvalidMoveException("Error: game is over cannot move now.");
+        }
+        if(chessBoard.getPiece(move.getStartPosition()) == null){
+            throw new InvalidMoveException("Error: No piece there.");
         }
         if(chessBoard.getPiece(move.getStartPosition()).getTeamColor() != getTeamTurn()){
             throw new InvalidMoveException("Error: You cannot move another player's pieces.");
@@ -146,7 +149,7 @@ public class ChessGameImpl implements ChessGame {
         }
         return moves;
     }
-    public TeamColor oppositeColor(TeamColor teamColor){
+    public static TeamColor oppositeColor(TeamColor teamColor){
         if(teamColor == TeamColor.BLACK){
             return TeamColor.WHITE;
         }
