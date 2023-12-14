@@ -80,14 +80,17 @@ public class WebSocketHandler {
         try {
             Game game = Games.findGame(userGameCommand.getGameID());
             ChessPiece.PieceType piece = game.getChessGame().getBoard().getPiece(userGameCommand.getMove().getStartPosition()).getPieceType();
-            game.getChessGame().makeMove(userGameCommand.getMove());
+            if((game.getChessGame().getTeamTurn().equals(ChessGame.TeamColor.WHITE) && game.getWhiteUsername().equals(username)) || (game.getChessGame().getTeamTurn().equals(ChessGame.TeamColor.BLACK) && game.getBlackUsername().equals(username))){
+                game.getChessGame().makeMove(userGameCommand.getMove());
+            }
+            else{
+                throw new InvalidMoveException("Error: It's " + game.getChessGame().getTeamTurn() + "'s turn.");
+            }
             Games.updateGame(game);
             connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.LOAD_GAME, game));
             String message = username + " moved " + piece + " from " + userGameCommand.getMove().getStartPosition() + " to " + userGameCommand.getMove().getEndPosition() + ".";
             connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
-        } catch (InvalidMoveException e) {
-            connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: Invalid move. Enter a valid move."));
-        } catch (DataAccessException e) {
+        } catch (InvalidMoveException | DataAccessException e) {
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
         }
     }
@@ -115,40 +118,21 @@ public class WebSocketHandler {
 //        connections.remove(userGameCommand.getAuthString());
         try {
             Game game = Games.findGame(userGameCommand.getGameID());
+            if(!(game.getWhiteUsername().equals(username) || game.getBlackUsername().equals(username))){
+                connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: cannot resign as observer."));
+                return;
+            }
             if(game.getChessGame().resignGame()){
                 Games.updateGame(game);
                 String message = username + " has resigned the game.";
                 connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
             }
             else{
-                connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: cannot resign. Game is already over."));
+                connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: cannot resign game is already over."));
             }
         } catch (DataAccessException e) {
-//            connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
+            connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
         }
     }
-
-//    private static class ChessMoveAdapter implements JsonDeserializer<ChessMove> {
-//        public ChessMove deserialize(JsonElement el, Type type, JsonDeserializationContext ctx) throws JsonParseException {
-//            el.getAsJsonObject().get("pieceType").getAsString()
-//        }
-//    }
-
-//    private void exit(String visitorName) throws IOException {
-//        connections.remove(visitorName);
-//        var message = String.format("%s left the shop", visitorName);
-//        var notification = new Notification(Notification.Type.DEPARTURE, message);
-//        connections.broadcast(visitorName, notification);
-//    }
-//
-//    public void makeNoise(String petName, String sound) throws ResponseException {
-//        try {
-//            var message = String.format("%s says %s", petName, sound);
-//            var notification = new Notification(Notification.Type.NOISE, message);
-//            connections.broadcast("", notification);
-//        } catch (Exception ex) {
-//            throw new ResponseException(500, ex.getMessage());
-//        }
-//    }
 }
 

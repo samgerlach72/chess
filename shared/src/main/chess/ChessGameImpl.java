@@ -37,7 +37,7 @@ public class ChessGameImpl implements ChessGame {
             throw new InvalidMoveException("Error: game is over cannot move now.");
         }
         if(chessBoard.getPiece(move.getStartPosition()).getTeamColor() != getTeamTurn()){
-            throw new InvalidMoveException("Invalid move.");
+            throw new InvalidMoveException("Error: You cannot move another player's pieces.");
         }
         Collection<ChessMove> allValidMoves = validMoves(move.getStartPosition());
         for(ChessMove validMove : allValidMoves){
