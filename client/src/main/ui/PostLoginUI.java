@@ -102,6 +102,7 @@ public class PostLoginUI {
             String playerColor = null;
             if (inputComponents.length == 3) {
                 playerColor = inputComponents[2];
+                playerColor = playerColor.toUpperCase();
             }
             JoinGameRequest joinGameRequest = new JoinGameRequest(playerColor, gameID);
             JoinGameResponse joinGameResponse = ServerFacade.joinGame(joinGameRequest, authToken);

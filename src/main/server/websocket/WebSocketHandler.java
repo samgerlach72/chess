@@ -1,7 +1,6 @@
 package server.websocket;
 
 import chess.*;
-import com.google.gson.*;
 import dataAccess.AuthTokens;
 import dataAccess.DataAccessException;
 import dataAccess.Games;
@@ -27,7 +26,7 @@ public class WebSocketHandler {
         try {
             username = AuthTokens.authenticate(userGameCommand.getAuthString());
         } catch (DataAccessException e) {
-            connections.add(userGameCommand.getAuthString(), session);
+            connections.add(userGameCommand.getAuthString(), session, userGameCommand.getGameID());
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: Authentication failed"));
             connections.remove(userGameCommand.getAuthString());
             return;
@@ -42,7 +41,7 @@ public class WebSocketHandler {
     }
 
     private void joinPlayer(UserGameCommand userGameCommand, String username, Session session) throws IOException{
-        connections.add(userGameCommand.getAuthString(), session);
+        connections.add(userGameCommand.getAuthString(), session, userGameCommand.getGameID());
         try {
             Game game = Games.findGame(userGameCommand.getGameID());
             if(userGameCommand.getPlayerColor() == ChessGame.TeamColor.BLACK) {
@@ -60,19 +59,19 @@ public class WebSocketHandler {
             }
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.LOAD_GAME, game));
             String message = username + " joined game as " + userGameCommand.getPlayerColor() + " player.";
-            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
+            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message), userGameCommand.getGameID());
         } catch (DataAccessException e) {
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
             connections.remove(userGameCommand.getAuthString());
         }
     }
     private void joinObserver(UserGameCommand userGameCommand, String username, Session session) throws IOException{
-        connections.add(userGameCommand.getAuthString(), session);
+        connections.add(userGameCommand.getAuthString(), session, userGameCommand.getGameID());
         try {
             Game game = Games.findGame(userGameCommand.getGameID());
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.LOAD_GAME, game));
             String message = username + " joined game as observer.";
-            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
+            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message), userGameCommand.getGameID());
         } catch (DataAccessException e) {
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
         }
@@ -91,9 +90,9 @@ public class WebSocketHandler {
                 throw new InvalidMoveException("Error: It's " + game.getChessGame().getTeamTurn() + "'s turn.");
             }
             Games.updateGame(game);
-            connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.LOAD_GAME, game));
+            connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.LOAD_GAME, game), userGameCommand.getGameID());
             String message = username + " moved " + piece.getPieceType() + ".";
-            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
+            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message), userGameCommand.getGameID());
         } catch (InvalidMoveException | DataAccessException e) {
             connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
         }
@@ -112,9 +111,8 @@ public class WebSocketHandler {
                 Games.updateGame(game);
             }
             String message = username + " has left the game.";
-            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
-        } catch (DataAccessException e) {
-//            connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, e.getMessage()));
+            connections.broadcast(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message), userGameCommand.getGameID());
+        } catch (DataAccessException ignored) {
         }
     }
 
@@ -128,7 +126,7 @@ public class WebSocketHandler {
             if(game.getChessGame().resignGame()){
                 Games.updateGame(game);
                 String message = username + " has resigned the game.";
-                connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message));
+                connections.broadcast(null, new ServerMessage(ServerMessage.ServerMessageType.NOTIFICATION, message), userGameCommand.getGameID());
             }
             else{
                 connections.sendToRoot(userGameCommand.getAuthString(), new ServerMessage(ServerMessage.ServerMessageType.ERROR, "Error: Cannot resign game is already over."));

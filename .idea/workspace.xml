@@ -9,16 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/main/ui/BoardPrinter.java" afterDir="false" />
+    <list default="true" id="75022f84-58c8-4abc-96c5-c3fd665e312f" name="Changes" comment="phase 6 full functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/client/websocket/WebSocketFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/client/websocket/WebSocketFacade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/ui/GameUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/GameUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/ui/PostLoginUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/chess/ChessGameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/chess/ChessGameImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/starter/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/starter/chess/ChessGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/server/websocket/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/websocket/Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/server/websocket/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/websocket/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/server/websocket/WebSocketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/server/websocket/WebSocketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/passoffTests/TestFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JUnit.WebSocketTests">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="client" />
@@ -156,9 +156,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebSocketTests" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.WebSocketTests" />
         <item itemvalue="JUnit.ChessGameTests" />
         <item itemvalue="JUnit.All in chess" />
       </list>
@@ -429,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702521998883</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="bug fixes and client functionality">
+      <option name="closed" value="true" />
+      <created>1702582806256</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1702582806256</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,8 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding correct ChessGameImpl (passes all tests now)" />
-    <MESSAGE value="Adding phase 2" />
     <MESSAGE value="Adding handlers and whatnot" />
     <MESSAGE value="Adding correct (or mostly correct) impl of RegisterHandler" />
     <MESSAGE value="Adding Normal User Registration Test Passed" />
@@ -469,7 +475,9 @@
     <MESSAGE value="Adding phase 6 functional websocket" />
     <MESSAGE value="Adding phase 6 17/20 test cases passed" />
     <MESSAGE value="Adding phase 6 all test cases passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding phase 6 all test cases passed" />
+    <MESSAGE value="bug fixes and client functionality" />
+    <MESSAGE value="phase 6 full functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="phase 6 full functionality" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

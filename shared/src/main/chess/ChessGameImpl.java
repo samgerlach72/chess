@@ -134,6 +134,9 @@ public class ChessGameImpl implements ChessGame {
     TeamColor teamTurn = TeamColor.WHITE;
     ChessBoardImpl chessBoard = new ChessBoardImpl();
     boolean gameOver = false;
+    public boolean isGameOver() {
+        return gameOver;
+    }
     public boolean resignGame(){
         if(this.gameOver){
             return false;

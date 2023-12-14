@@ -53,10 +53,9 @@ public class GameUI {
                 System.out.print(EscapeSequences.SET_TEXT_COLOR_MAGENTA + "help" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - with possible commands" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                         + "redraw" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - chess board" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                         + "leave" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - chess game" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
-                        + "quit" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - playing chess" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n");
+                        + "highlight <column> <row>" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - all legal moves for piece" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n");
                 if(teamColor != null){
-                    System.out.print("highlight <column> <row>" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - all legal moves for piece" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
-                            + "move <column1> <row1> to <column2> <row2> [promotionPiece]" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a piece" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
+                    System.out.print("move <column1> <row1> to <column2> <row2> [promotionPiece]" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - a piece" + EscapeSequences.SET_TEXT_COLOR_MAGENTA + "\n"
                             + "resign" + EscapeSequences.SET_TEXT_COLOR_GREEN + " - chess game\n");
                 }
             }
@@ -73,10 +72,6 @@ public class GameUI {
             }
             else if(inputComponents[0].equalsIgnoreCase("resign")){
                 resign();
-            }
-            else if(inputComponents[0].equalsIgnoreCase("quit")){
-                ws.close();
-                System.exit(0);
             }
             else if(inputComponents[0].equalsIgnoreCase("highlight")){
                 highlight(inputComponents);
@@ -95,11 +90,40 @@ public class GameUI {
         }
         ChessGame.TeamColor teamTurn = game.getChessGame().getTeamTurn();
         switch (teamTurn) {
-            case WHITE -> System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "It's white's turn.");
-            case BLACK -> System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "It's black's turn.");
-            case WHITE_WON -> System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "White won the game.");
-            case BLACK_WON -> System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Black won the game.");
-            case STALEMATE -> System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Game is in stalemate.");
+            case WHITE ->{
+                if(game.getChessGame().isGameOver()){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Game is over. Player has resigned.");
+                }
+                else if(game.getChessGame().isInCheckmate(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "White is in checkmate. Black wins!");
+                }
+                else if(game.getChessGame().isInStalemate(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Game is over. Stalemate.");
+                }
+                else if(game.getChessGame().isInCheck(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "White is in check. It's white's turn.");
+                }
+                else{
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "It's white's turn.");
+                }
+            }
+            case BLACK -> {
+                if(game.getChessGame().isGameOver()){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Game is over. Player has resigned.");
+                }
+                else if(game.getChessGame().isInCheckmate(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Black is in checkmate. White wins!");
+                }
+                else if(game.getChessGame().isInStalemate(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Game is over. Stalemate.");
+                }
+                else if(game.getChessGame().isInCheck(teamTurn)){
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "Black is in check. It's black's turn.");
+                }
+                else{
+                    System.out.println(EscapeSequences.SET_TEXT_COLOR_GREEN + "It's black's turn.");
+                }
+            }
         }
     }
     private boolean leave(){
@@ -165,7 +189,6 @@ public class GameUI {
     }
 
     public void notify(ServerMessage serverMessage){
-//        System.out.print("\n");
         switch (serverMessage.getServerMessageType()) {
             case LOAD_GAME -> {
                 this.game = serverMessage.getGame();

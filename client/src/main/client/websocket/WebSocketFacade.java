@@ -57,9 +57,7 @@ public class WebSocketFacade extends Endpoint {
     public void close(){
         try {
             this.session.close();
-//            System.out.println("session closed");
         } catch (IOException e) {
-//            System.out.println("session was not closed");
             throw new RuntimeException(e);
         }
     }
