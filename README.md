@@ -1,4 +1,1 @@
-# chess
-- [ ] create repo
-- [ ] create inelliJ project
-- [ ] ...
+This was the final project for my Advanced Software Construction class at BYU. It allows multiple users to interact with a cool text based chess UI that allows for all the functionality that would be expected of a chess application (highlighting possible moves, observing games, joining games, making moves, displaying messages when users are in check, etc.). Coded in Java and SQL.
